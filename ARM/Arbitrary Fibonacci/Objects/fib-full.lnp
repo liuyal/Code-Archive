@@ -1,0 +1,1 @@
+-T ./gcc_arm.ld -mbig-endian -mthumb-interwork -o "./Objects/fib-full.elf" "./objects/fib-full.o" -nostartfiles -lm

@@ -1,0 +1,23 @@
+
+https://github.com/brannondorsey/wifi-cracking
+https://null-byte.wonderhowto.com/how-to/stealthfully-sniff-wi-fi-activity-without-connecting-target-router-0183444/
+https://null-byte.wonderhowto.com/how-to/check-if-your-wireless-network-adapter-supports-monitor-mode-packet-injection-0191221/
+https://null-byte.wonderhowto.com/how-to/hack-wi-fi-get-anyones-wi-fi-password-without-cracking-using-wifiphisher-0165154/
+http://hackersgrid.com/2017/09/wifi-adapters-kali-linux-2018.html
+https://www.aircrack-ng.org/doku.php?id=cracking_wpa
+https://en.wikipedia.org/wiki/OSI_model
+
+# sublime
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update
+sudo apt-get install sublime-text
+
+
+
+
+
+
+
+   

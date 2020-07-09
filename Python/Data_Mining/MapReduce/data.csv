@@ -1,0 +1,257 @@
+d1,d2,d3,d4,m
+Vancouver,Q1,Phone,Red ,5
+Vancouver,Q1,Phone,Black,4
+Vancouver,Q1,Phone,White,3
+Vancouver,Q1,Phone,Blue,5
+Vancouver,Q2,Phone,Red ,5
+Vancouver,Q2,Phone,Black,1
+Vancouver,Q2,Phone,White,1
+Vancouver,Q2,Phone,Blue,3
+Vancouver,Q3,Phone,Red ,3
+Vancouver,Q3,Phone,Black,2
+Vancouver,Q3,Phone,White,2
+Vancouver,Q3,Phone,Blue,2
+Vancouver,Q4,Phone,Red ,4
+Vancouver,Q4,Phone,Black,2
+Vancouver,Q4,Phone,White,3
+Vancouver,Q4,Phone,Blue,5
+Vancouver,Q1,Laptop,Red ,3
+Vancouver,Q1,Laptop,Black,5
+Vancouver,Q1,Laptop,White,1
+Vancouver,Q1,Laptop,Blue,1
+Vancouver,Q2,Laptop,Red ,5
+Vancouver,Q2,Laptop,Black,2
+Vancouver,Q2,Laptop,White,4
+Vancouver,Q2,Laptop,Blue,2
+Vancouver,Q3,Laptop,Red ,1
+Vancouver,Q3,Laptop,Black,4
+Vancouver,Q3,Laptop,White,2
+Vancouver,Q3,Laptop,Blue,1
+Vancouver,Q4,Laptop,Red ,3
+Vancouver,Q4,Laptop,Black,1
+Vancouver,Q4,Laptop,White,5
+Vancouver,Q4,Laptop,Blue,4
+Vancouver,Q1,TV,Red ,2
+Vancouver,Q1,TV,Black,3
+Vancouver,Q1,TV,White,2
+Vancouver,Q1,TV,Blue,5
+Vancouver,Q2,TV,Red ,4
+Vancouver,Q2,TV,Black,3
+Vancouver,Q2,TV,White,3
+Vancouver,Q2,TV,Blue,1
+Vancouver,Q3,TV,Red ,3
+Vancouver,Q3,TV,Black,2
+Vancouver,Q3,TV,White,5
+Vancouver,Q3,TV,Blue,1
+Vancouver,Q4,TV,Red ,5
+Vancouver,Q4,TV,Black,3
+Vancouver,Q4,TV,White,2
+Vancouver,Q4,TV,Blue,3
+Vancouver,Q1,Radio,Red ,3
+Vancouver,Q1,Radio,Black,2
+Vancouver,Q1,Radio,White,5
+Vancouver,Q1,Radio,Blue,4
+Vancouver,Q2,Radio,Red ,1
+Vancouver,Q2,Radio,Black,3
+Vancouver,Q2,Radio,White,2
+Vancouver,Q2,Radio,Blue,1
+Vancouver,Q3,Radio,Red ,2
+Vancouver,Q3,Radio,Black,3
+Vancouver,Q3,Radio,White,3
+Vancouver,Q3,Radio,Blue,4
+Vancouver,Q4,Radio,Red ,2
+Vancouver,Q4,Radio,Black,4
+Vancouver,Q4,Radio,White,4
+Vancouver,Q4,Radio,Blue,3
+Toronto,Q1,Phone,Red ,4
+Toronto,Q1,Phone,Black,5
+Toronto,Q1,Phone,White,3
+Toronto,Q1,Phone,Blue,2
+Toronto,Q2,Phone,Red ,5
+Toronto,Q2,Phone,Black,3
+Toronto,Q2,Phone,White,3
+Toronto,Q2,Phone,Blue,5
+Toronto,Q3,Phone,Red ,4
+Toronto,Q3,Phone,Black,3
+Toronto,Q3,Phone,White,3
+Toronto,Q3,Phone,Blue,2
+Toronto,Q4,Phone,Red ,4
+Toronto,Q4,Phone,Black,3
+Toronto,Q4,Phone,White,5
+Toronto,Q4,Phone,Blue,4
+Toronto,Q1,Laptop,Red ,3
+Toronto,Q1,Laptop,Black,3
+Toronto,Q1,Laptop,White,3
+Toronto,Q1,Laptop,Blue,1
+Toronto,Q2,Laptop,Red ,5
+Toronto,Q2,Laptop,Black,3
+Toronto,Q2,Laptop,White,1
+Toronto,Q2,Laptop,Blue,3
+Toronto,Q3,Laptop,Red ,1
+Toronto,Q3,Laptop,Black,5
+Toronto,Q3,Laptop,White,5
+Toronto,Q3,Laptop,Blue,5
+Toronto,Q4,Laptop,Red ,4
+Toronto,Q4,Laptop,Black,3
+Toronto,Q4,Laptop,White,4
+Toronto,Q4,Laptop,Blue,3
+Toronto,Q1,TV,Red ,1
+Toronto,Q1,TV,Black,4
+Toronto,Q1,TV,White,4
+Toronto,Q1,TV,Blue,3
+Toronto,Q2,TV,Red ,3
+Toronto,Q2,TV,Black,5
+Toronto,Q2,TV,White,2
+Toronto,Q2,TV,Blue,2
+Toronto,Q3,TV,Red ,1
+Toronto,Q3,TV,Black,5
+Toronto,Q3,TV,White,3
+Toronto,Q3,TV,Blue,3
+Toronto,Q4,TV,Red ,4
+Toronto,Q4,TV,Black,2
+Toronto,Q4,TV,White,1
+Toronto,Q4,TV,Blue,3
+Toronto,Q1,Radio,Red ,4
+Toronto,Q1,Radio,Black,1
+Toronto,Q1,Radio,White,1
+Toronto,Q1,Radio,Blue,1
+Toronto,Q2,Radio,Red ,4
+Toronto,Q2,Radio,Black,2
+Toronto,Q2,Radio,White,4
+Toronto,Q2,Radio,Blue,1
+Toronto,Q3,Radio,Red ,4
+Toronto,Q3,Radio,Black,4
+Toronto,Q3,Radio,White,1
+Toronto,Q3,Radio,Blue,1
+Toronto,Q4,Radio,Red ,2
+Toronto,Q4,Radio,Black,2
+Toronto,Q4,Radio,White,4
+Toronto,Q4,Radio,Blue,5
+Boston,Q1,Phone,Red ,3
+Boston,Q1,Phone,Black,3
+Boston,Q1,Phone,White,3
+Boston,Q1,Phone,Blue,3
+Boston,Q2,Phone,Red ,1
+Boston,Q2,Phone,Black,5
+Boston,Q2,Phone,White,3
+Boston,Q2,Phone,Blue,1
+Boston,Q3,Phone,Red ,5
+Boston,Q3,Phone,Black,4
+Boston,Q3,Phone,White,5
+Boston,Q3,Phone,Blue,5
+Boston,Q4,Phone,Red ,4
+Boston,Q4,Phone,Black,3
+Boston,Q4,Phone,White,4
+Boston,Q4,Phone,Blue,4
+Boston,Q1,Laptop,Red ,5
+Boston,Q1,Laptop,Black,1
+Boston,Q1,Laptop,White,3
+Boston,Q1,Laptop,Blue,5
+Boston,Q2,Laptop,Red ,1
+Boston,Q2,Laptop,Black,2
+Boston,Q2,Laptop,White,3
+Boston,Q2,Laptop,Blue,1
+Boston,Q3,Laptop,Red ,3
+Boston,Q3,Laptop,Black,4
+Boston,Q3,Laptop,White,1
+Boston,Q3,Laptop,Blue,1
+Boston,Q4,Laptop,Red ,1
+Boston,Q4,Laptop,Black,2
+Boston,Q4,Laptop,White,2
+Boston,Q4,Laptop,Blue,3
+Boston,Q1,TV,Red ,4
+Boston,Q1,TV,Black,4
+Boston,Q1,TV,White,3
+Boston,Q1,TV,Blue,5
+Boston,Q2,TV,Red ,3
+Boston,Q2,TV,Black,4
+Boston,Q2,TV,White,1
+Boston,Q2,TV,Blue,3
+Boston,Q3,TV,Red ,4
+Boston,Q3,TV,Black,3
+Boston,Q3,TV,White,2
+Boston,Q3,TV,Blue,1
+Boston,Q4,TV,Red ,3
+Boston,Q4,TV,Black,5
+Boston,Q4,TV,White,4
+Boston,Q4,TV,Blue,2
+Boston,Q1,Radio,Red ,4
+Boston,Q1,Radio,Black,1
+Boston,Q1,Radio,White,4
+Boston,Q1,Radio,Blue,5
+Boston,Q2,Radio,Red ,5
+Boston,Q2,Radio,Black,5
+Boston,Q2,Radio,White,3
+Boston,Q2,Radio,Blue,2
+Boston,Q3,Radio,Red ,2
+Boston,Q3,Radio,Black,2
+Boston,Q3,Radio,White,4
+Boston,Q3,Radio,Blue,5
+Boston,Q4,Radio,Red ,2
+Boston,Q4,Radio,Black,2
+Boston,Q4,Radio,White,5
+Boston,Q4,Radio,Blue,4
+London,Q1,Phone,Red ,4
+London,Q1,Phone,Black,1
+London,Q1,Phone,White,3
+London,Q1,Phone,Blue,4
+London,Q2,Phone,Red ,4
+London,Q2,Phone,Black,1
+London,Q2,Phone,White,4
+London,Q2,Phone,Blue,3
+London,Q3,Phone,Red ,1
+London,Q3,Phone,Black,5
+London,Q3,Phone,White,1
+London,Q3,Phone,Blue,4
+London,Q4,Phone,Red ,1
+London,Q4,Phone,Black,1
+London,Q4,Phone,White,4
+London,Q4,Phone,Blue,1
+London,Q1,Laptop,Red ,1
+London,Q1,Laptop,Black,3
+London,Q1,Laptop,White,1
+London,Q1,Laptop,Blue,4
+London,Q2,Laptop,Red ,2
+London,Q2,Laptop,Black,1
+London,Q2,Laptop,White,2
+London,Q2,Laptop,Blue,1
+London,Q3,Laptop,Red ,2
+London,Q3,Laptop,Black,5
+London,Q3,Laptop,White,2
+London,Q3,Laptop,Blue,2
+London,Q4,Laptop,Red ,4
+London,Q4,Laptop,Black,2
+London,Q4,Laptop,White,3
+London,Q4,Laptop,Blue,1
+London,Q1,TV,Red ,3
+London,Q1,TV,Black,4
+London,Q1,TV,White,4
+London,Q1,TV,Blue,1
+London,Q2,TV,Red ,2
+London,Q2,TV,Black,3
+London,Q2,TV,White,3
+London,Q2,TV,Blue,4
+London,Q3,TV,Red ,3
+London,Q3,TV,Black,1
+London,Q3,TV,White,4
+London,Q3,TV,Blue,2
+London,Q4,TV,Red ,1
+London,Q4,TV,Black,2
+London,Q4,TV,White,5
+London,Q4,TV,Blue,4
+London,Q1,Radio,Red ,3
+London,Q1,Radio,Black,4
+London,Q1,Radio,White,4
+London,Q1,Radio,Blue,1
+London,Q2,Radio,Red ,2
+London,Q2,Radio,Black,4
+London,Q2,Radio,White,5
+London,Q2,Radio,Blue,2
+London,Q3,Radio,Red ,2
+London,Q3,Radio,Black,3
+London,Q3,Radio,White,5
+London,Q3,Radio,Blue,3
+London,Q4,Radio,Red ,4
+London,Q4,Radio,Black,2
+London,Q4,Radio,White,2
+London,Q4,Radio,Blue,4

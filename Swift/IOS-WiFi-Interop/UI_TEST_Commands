@@ -1,0 +1,24 @@
+
+list devices:
+	instruments -s devices
+
+
+run replace <DeviceName> with device name
+	xcodebuild -workspace Wifi_test.xcworkspace -scheme "Wifi_testUITests" -destination 'platform=iOS,name=<DeviceName>' test
+
+
+ALEOS:
+	
+	xcodebuild -workspace Wifi_test.xcworkspace -scheme "Wifi_testUITests" -destination 'platform=iOS,name=iPhone6' -destination 'platform=iOS,name=iPadmini'  -destination 'platform=iOS,name=iPad5' '-only-testing:Wifi_testUITests/Wifi_testUITests/testTimer_ALEOS' test
+
+MGOS:
+
+	xcodebuild -workspace Wifi_test.xcworkspace -scheme "Wifi_testUITests" -destination 'platform=iOS,name=iPhone6' -destination 'platform=iOS,name=iPadmini'  -destination 'platform=iOS,name=iPad5' '-only-testing:Wifi_testUITests/Wifi_testUITests/testTimer_MGOS' test
+
+
+
+with iphonesimulator
+	xcodebuild -workspace Wifi_test.xcworkspace -scheme "Wifi_testUITests" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=12.1' test | xcpretty
+
+misc
+	xcodebuild -workspace Wifi_test.xcworkspace -scheme "Wifi_testUITests" -destination 'platform=iOS,name=iPad' '-only-testing:Wifi_testUITests/Wifi_testUITests/testTimer_MGOS' test

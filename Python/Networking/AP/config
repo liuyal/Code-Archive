@@ -1,0 +1,53 @@
+-- https://linuxalfi.wordpress.com/
+
+
+-- hostapd.conf
+
+interface=wlx088005bad428
+driver=nl80211
+ssid=AP
+hw_mode=g
+channel=7
+wmm_enabled=0
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+
+wpa=2
+wpa_passphrase=1234567890
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+
+
+-- /etc/dnsmasq.conf
+
+# disables dnsmasq reading any other files like /etc/resolv.conf for nameservers
+no-resolv
+
+# Interface to bind to
+interface=wlx088005bad428
+
+#Specify starting_range,end_range,lease_time
+port=5353
+dhcp-range=10.0.0.3,10.0.0.20,12h
+
+# dns addresses to send to the clients
+server=8.8.8.8
+server=10.0.0.1
+
+-- update ifconfig wlan interface
+sudo ifconfig wlx088005bad428 up 10.0.0.1 netmask 255.255.255.0
+
+-- View dhcp lease
+cat /var/lib/misc/dnsmasq.leases
+
+
+
+
+-- steps to start
+sudo ifconfig wlx088005bad428 up 10.0.0.1 netmask 255.255.255.0
+sudo killall wpa_supplicant
+hostapd /etc/hostapd.conf &
+sudo service wpa_supplicant restart
+

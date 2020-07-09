@@ -1,0 +1,29 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+
+ENTITY FullAdder IS
+
+PORT (
+		A : IN STD_LOGIC;
+		B : IN STD_LOGIC;
+		C : IN STD_LOGIC;
+		Carry: OUT STD_LOGIC;
+		Sum : OUT STD_LOGIC
+);
+
+END ENTITY FullAdder;
+
+ARCHITECTURE Behaviour OF FullAdder IS
+
+
+
+BEGIN
+
+
+Sum <= A XOR B XOR C ;
+Carry <= (A AND B) OR (C AND A) OR (C AND B) ;
+
+
+
+END Behaviour;

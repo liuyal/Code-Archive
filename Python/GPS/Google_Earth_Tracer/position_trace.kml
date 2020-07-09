@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name></name><description></description><Style id="yellowLineGreenPoly"><LineStyle><color>ffff0000</color><width>3</width></LineStyle><PolyStyle><color>ffff0000</color></PolyStyle></Style><Style id="PointStyle"><IconStyle><color>ffff0000</color><scale>0.5</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_square.png</href></Icon></IconStyle><LabelStyle><scale>0</scale></LabelStyle></Style><Folder><name>Absolute Extruded</name><description></description><visibility>1</visibility><open>0</open><Placemark><name>Absolute Extruded</name><description></description><styleUrl>#yellowLineGreenPoly</styleUrl><LineString><extrude>1</extrude><tessellate>1</tessellate><coordinates>
+-123.16328608333333,49.144704583333336
+-123.16328591666667,49.144705083333335
+-123.16328575,49.144705583333334
+-123.16328575,49.14470575
+</coordinates></LineString></Placemark></Folder></Document></kml>

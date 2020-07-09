@@ -1,0 +1,21 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+
+ENTITY HalfAdder IS
+
+PORT (
+		A : IN STD_LOGIC;
+		B : IN STD_LOGIC;
+		Carry: OUT STD_LOGIC;
+		Sum : OUT STD_LOGIC
+);
+END ENTITY HalfAdder;
+
+ARCHITECTURE COND OF HalfAdder IS
+
+BEGIN
+Sum <= A XOR B;            
+Carry <= A AND B;            
+
+END COND;  

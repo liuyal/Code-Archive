@@ -1,0 +1,7 @@
+title,description,Assignee,label,milestone
+Neo-6M power issue,GPS not receiving fix when powered through ESP32,liuyal,hardware:bug:critical,GPS Hardware
+Android App Map UI prototype,Design Maps fragment prototype,liuyal,software:ui:implementation,Android App
+Android App Logs UI prototype,Design Logs fragment prototype,liuyal,software:ui:implementation,Android App
+Android App Setting UI prototype,Design Settings fragment prototype,liuyal,software:ui:implementation,Android App
+Recycle view adaptor for list of logs,Read in List of logs and display on recycle view under log fragment,liuyal,software:implementation,Android App
+Settings Options,-,liuyal,software:implementation,Android App

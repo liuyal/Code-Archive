@@ -1,0 +1,17 @@
+
+mysql_cred:
+
+  DATABASE: "nova"
+  USER: "root"
+  PASSWORD: ""
+  IP: "localhost"
+
+  # DATABASE: "nova"
+  # USER: "nova"
+  # PASSWORD: "Airlink_1"
+  # IP: "localhost"
+
+  # DATABASE: "nova"
+  # USER: "nova"
+  # PASSWORD: "Airlink_1"
+  # IP: "192.168.1.150"

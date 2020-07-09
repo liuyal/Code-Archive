@@ -1,0 +1,11 @@
+.idea/*
+.vscode/*
+.ipynb_checkpoints/
+C++/yase/*
+build/*
+debug/*
+release/*
+target/
+*.token
+git.token
+git_commit.py

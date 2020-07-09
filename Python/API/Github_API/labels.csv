@@ -1,0 +1,10 @@
+name,color,description
+blocked,e855a8,Work on issue cannot continue
+bug,d73a4a,Something isn't working
+critical,FF0000,Important issue
+documentation,0075ca,Improvements or additions to documentation
+hardware,00487c,Hardware related issue
+implementation,D9534F,Functionality to be added
+improvement,5CB85C,New feature requests or improvement
+software,F0AD4E,Software related issue
+task,8fceef,Things to do
