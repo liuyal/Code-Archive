@@ -1,4 +1,4 @@
-item,max,min,mean,variance
+attribute,max,min,mean,variance
 a,5,3,4.2956,0.9126206399999999
 b,6,0,1.853,0.6169910000000001
 c,3,0,1.541,0.27991900000000003
