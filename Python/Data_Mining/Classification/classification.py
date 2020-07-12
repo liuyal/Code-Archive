@@ -45,6 +45,7 @@ def shannon_entropy(data):
     pd_series = pd.Series(data)
     counts = pd_series.value_counts()
     print("Shannon Entropy:", entropy(counts, base=2))
+    print(counts)
     return counts
 
 
@@ -173,6 +174,6 @@ if __name__ == "__main__":
     adaboost_report = adaptive_boost(training_data_frame, 10)
     save_report(adaboost_report, os.getcwd() + os.sep + "adaboost_report.csv")
 
-    # custom_decision_tree(training_data_frame, test_data_frame)
+    custom_decision_tree(training_data_frame, test_data_frame)
 
     print("EOS")
