@@ -2,11 +2,11 @@
 .vscode/
 .ipynb_checkpoints/
 
+_pycache_/
 build/
 debug/
 release/
 target/
-
 C++/yase/
 
 *.token

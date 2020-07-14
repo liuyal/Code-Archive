@@ -124,7 +124,7 @@ def decision_tree_k_fold(training_data_frame, k=10):
     return result_list
 
 
-def adaptive_boost_k_fold(training_data_frame, k=10):
+def adaboost_k_fold(training_data_frame, k=10):
     copy_frame = copy.deepcopy(training_data_frame)
     x_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
     y_data = copy_frame[training_data_frame.columns[-1]]
@@ -150,7 +150,7 @@ def adaptive_boost_k_fold(training_data_frame, k=10):
     return result_list
 
 
-def custom_decision_tree_gradientBoost_k_fold(training_data_frame, k=10):
+def gradientBoost_k_fold(training_data_frame, k=10):
     copy_frame = copy.deepcopy(training_data_frame)
     x_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
     y_data = copy_frame[training_data_frame.columns[-1]]
@@ -163,7 +163,7 @@ def custom_decision_tree_gradientBoost_k_fold(training_data_frame, k=10):
         x_data_train_subset = pd.concat([x_data[0:lower_bound], x_data[upper_bound:]])
         y_data_train_subset = pd.concat([y_data[0:lower_bound], y_data[upper_bound:]])
 
-        gb_clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.5, max_features=2, max_depth=2, random_state=0)
+        gb_clf = GradientBoostingClassifier(n_estimators=200, learning_rate=0.5, max_features=2, max_depth=2, random_state=0)
         gb_clf.fit(x_data_train_subset, y_data_train_subset)
         y_predicted = gb_clf.predict(x_data_test_subset)
 
@@ -174,6 +174,54 @@ def custom_decision_tree_gradientBoost_k_fold(training_data_frame, k=10):
         print(cm)
         print(classification_report(y_data_test_subset, y_predicted, digits=4))
     return result_list
+
+
+def dt_generate_final_data(training_data_frame, test_data_frame, save_path):
+    copy_frame = copy.deepcopy(training_data_frame)
+    x_train_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
+    y_train_data = copy_frame[training_data_frame.columns[-1]]
+
+    classifier = DecisionTreeClassifier()
+    classifier.fit(x_train_data, y_train_data)
+    y_predicted = classifier.predict(test_data_frame)
+
+    file = open(save_path, "a+")
+    file.truncate(0)
+    file.write('\n'.join([str(i) for i in y_predicted.tolist()]))
+    file.flush()
+    file.close()
+
+
+def adaboost_generate_final_data(training_data_frame, test_data_frame, save_path):
+    copy_frame = copy.deepcopy(training_data_frame)
+    x_train_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
+    y_train_data = copy_frame[training_data_frame.columns[-1]]
+
+    adaboost_classifier = AdaBoostClassifier(DecisionTreeClassifier(), n_estimators=50, learning_rate=0.5)
+    adaboost_classifier.fit(x_train_data, y_train_data)
+    y_predicted = adaboost_classifier.predict(test_data_frame)
+
+    file = open(save_path, "a+")
+    file.truncate(0)
+    file.write('\n'.join([str(i) for i in y_predicted.tolist()]))
+    file.flush()
+    file.close()
+
+
+def gradientBoost_generate_final_data(training_data_frame, test_data_frame, save_path):
+    copy_frame = copy.deepcopy(training_data_frame)
+    x_train_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
+    y_train_data = copy_frame[training_data_frame.columns[-1]]
+
+    gb_clf = GradientBoostingClassifier(n_estimators=200, learning_rate=0.5, max_features=2, max_depth=2, random_state=0)
+    gb_clf.fit(x_train_data, y_train_data)
+    y_predicted = gb_clf.predict(test_data_frame)
+
+    file = open(save_path, "a+")
+    file.truncate(0)
+    file.write('\n'.join([str(i) for i in y_predicted.tolist()]))
+    file.flush()
+    file.close()
 
 
 if __name__ == "__main__":
@@ -194,10 +242,14 @@ if __name__ == "__main__":
     dt_report = decision_tree_k_fold(training_data_frame, 10)
     save_report(dt_report, os.getcwd() + os.sep + "report_dt.csv")
 
-    adaboost_report = adaptive_boost_k_fold(training_data_frame, 10)
+    adaboost_report = adaboost_k_fold(training_data_frame, 10)
     save_report(adaboost_report, os.getcwd() + os.sep + "report_adaboost.csv")
 
-    gb_report = custom_decision_tree_gradientBoost_k_fold(training_data_frame, 10)
-    save_report(gb_report, os.getcwd() + os.sep + "report_gb.csv")
+    gb_report = gradientBoost_k_fold(training_data_frame, 10)
+    save_report(gb_report, os.getcwd() + os.sep + "report_gradientboost.csv")
+
+    dt_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "final_dt.csv")
+    adaboost_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "final_adaboost.csv")
+    gradientBoost_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "final_gradientboost.csv")
 
     print("EOS")
