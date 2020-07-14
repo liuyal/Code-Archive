@@ -15,6 +15,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 
 
 def df2db(db_name, table_name, df):
@@ -96,15 +97,15 @@ def save_report(result_list, file_path):
     file.close()
 
 
-def decision_tree_k_fold(data_frame, k=10):
-    copy_frame = copy.deepcopy(data_frame)
-    x_data = copy_frame.drop(data_frame.columns[-1], axis=1)
-    y_data = copy_frame[data_frame.columns[-1]]
+def decision_tree_k_fold(training_data_frame, k=10):
+    copy_frame = copy.deepcopy(training_data_frame)
+    x_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
+    y_data = copy_frame[training_data_frame.columns[-1]]
     # x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.10)
     result_list = []
     for i in range(0, k):
-        lower_bound = int(i * data_frame.shape[0] / k)
-        upper_bound = int(i * data_frame.shape[0] / k + data_frame.shape[0] / k)
+        lower_bound = int(i * training_data_frame.shape[0] / k)
+        upper_bound = int(i * training_data_frame.shape[0] / k + training_data_frame.shape[0] / k)
         x_data_test_subset = x_data[lower_bound:upper_bound]
         y_data_test_subset = y_data[lower_bound:upper_bound]
         x_data_train_subset = pd.concat([x_data[0:lower_bound], x_data[upper_bound:]])
@@ -123,20 +124,20 @@ def decision_tree_k_fold(data_frame, k=10):
     return result_list
 
 
-def adaptive_boost(data_frame, k=10):
-    copy_frame = copy.deepcopy(data_frame)
-    x_data = copy_frame.drop(data_frame.columns[-1], axis=1)
-    y_data = copy_frame[data_frame.columns[-1]]
+def adaptive_boost_k_fold(training_data_frame, k=10):
+    copy_frame = copy.deepcopy(training_data_frame)
+    x_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
+    y_data = copy_frame[training_data_frame.columns[-1]]
     result_list = []
     for i in range(0, k):
-        lower_bound = int(i * data_frame.shape[0] / k)
-        upper_bound = int(i * data_frame.shape[0] / k + data_frame.shape[0] / k)
+        lower_bound = int(i * training_data_frame.shape[0] / k)
+        upper_bound = int(i * training_data_frame.shape[0] / k + training_data_frame.shape[0] / k)
         x_data_test_subset = x_data[lower_bound:upper_bound]
         y_data_test_subset = y_data[lower_bound:upper_bound]
         x_data_train_subset = pd.concat([x_data[0:lower_bound], x_data[upper_bound:]])
         y_data_train_subset = pd.concat([y_data[0:lower_bound], y_data[upper_bound:]])
 
-        adaboost_classifier = AdaBoostClassifier(DecisionTreeClassifier(), n_estimators=50, learning_rate=1)
+        adaboost_classifier = AdaBoostClassifier(DecisionTreeClassifier(), n_estimators=50, learning_rate=0.5)
         adaboost_classifier.fit(x_data_train_subset, y_data_train_subset)
         y_predicted = adaboost_classifier.predict(x_data_test_subset)
 
@@ -149,31 +150,54 @@ def adaptive_boost(data_frame, k=10):
     return result_list
 
 
-def custom_decision_tree(training_data_frame, test_data_frame):
-    return 0
+def custom_decision_tree_gradientBoost_k_fold(training_data_frame, k=10):
+    copy_frame = copy.deepcopy(training_data_frame)
+    x_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
+    y_data = copy_frame[training_data_frame.columns[-1]]
+    result_list = []
+    for i in range(0, k):
+        lower_bound = int(i * training_data_frame.shape[0] / k)
+        upper_bound = int(i * training_data_frame.shape[0] / k + training_data_frame.shape[0] / k)
+        x_data_test_subset = x_data[lower_bound:upper_bound]
+        y_data_test_subset = y_data[lower_bound:upper_bound]
+        x_data_train_subset = pd.concat([x_data[0:lower_bound], x_data[upper_bound:]])
+        y_data_train_subset = pd.concat([y_data[0:lower_bound], y_data[upper_bound:]])
+
+        gb_clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.5, max_features=2, max_depth=2, random_state=0)
+        gb_clf.fit(x_data_train_subset, y_data_train_subset)
+        y_predicted = gb_clf.predict(x_data_test_subset)
+
+        cm = confusion_matrix(y_data_test_subset, y_predicted)
+        report = classification_report(y_data_test_subset, y_predicted, digits=4, output_dict=True)
+        result_list.append((i, cm, report))
+        print("GradientBoost Round: " + str(i))
+        print(cm)
+        print(classification_report(y_data_test_subset, y_predicted, digits=4))
+    return result_list
 
 
 if __name__ == "__main__":
     training_data_frame = pd.read_excel(os.getcwd() + os.sep + "CMPT459DataSetforStudents.xls", sheet_name="Training Data", header=None)
     test_data_frame = pd.read_excel(os.getcwd() + os.sep + "CMPT459DataSetforStudents.xls", sheet_name="Test data", header=None)
-    training_data_frame.columns =  list(string.ascii_lowercase)[0:training_data_frame.shape[1]]
-    test_data_frame.columns =  list(string.ascii_lowercase)[0:test_data_frame.shape[1]]
+    training_data_frame.columns = list(string.ascii_lowercase)[0:training_data_frame.shape[1]]
+    test_data_frame.columns = list(string.ascii_lowercase)[0:test_data_frame.shape[1]]
 
-    training_data_stats = get_statistics(training_data_frame, os.getcwd() + os.sep + "training_stats.csv")
-    test_data_stats = get_statistics(test_data_frame, os.getcwd() + os.sep + "test_stats.csv")
+    training_data_stats = get_statistics(training_data_frame, os.getcwd() + os.sep + "stats_training.csv")
+    test_data_stats = get_statistics(test_data_frame, os.getcwd() + os.sep + "stats_test.csv")
 
     df2db("data.db", "training_dataset", training_data_frame)
     df2db("data.db", "test_dataset", test_data_frame)
 
-    counts = shannon_entropy(list(training_data_frame[ list(string.ascii_lowercase)[0:training_data_frame.shape[1]][-1]]))
-    score = compute_fisher_score(counts, training_data_frame, training_data_stats, os.getcwd() + os.sep + "training_fisher_score.csv")
+    counts = shannon_entropy(list(training_data_frame[list(string.ascii_lowercase)[0:training_data_frame.shape[1]][-1]]))
+    score = compute_fisher_score(counts, training_data_frame, training_data_stats, os.getcwd() + os.sep + "fisher_score_training.csv")
 
     dt_report = decision_tree_k_fold(training_data_frame, 10)
-    save_report(dt_report, os.getcwd() + os.sep + "dt_report.csv")
+    save_report(dt_report, os.getcwd() + os.sep + "report_dt.csv")
 
-    adaboost_report = adaptive_boost(training_data_frame, 10)
-    save_report(adaboost_report, os.getcwd() + os.sep + "adaboost_report.csv")
+    adaboost_report = adaptive_boost_k_fold(training_data_frame, 10)
+    save_report(adaboost_report, os.getcwd() + os.sep + "report_adaboost.csv")
 
-    custom_decision_tree(training_data_frame, test_data_frame)
+    gb_report = custom_decision_tree_gradientBoost_k_fold(training_data_frame, 10)
+    save_report(gb_report, os.getcwd() + os.sep + "report_gb.csv")
 
     print("EOS")
