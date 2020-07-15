@@ -75,6 +75,34 @@ def compute_fisher_score(counts, data_frame, stats, file_path):
     return sorted_result
 
 
+def average_report(report):
+
+    total_precision_0 = 0.0
+    total_recall_0 = 0.0
+    total_precision_1 = 0.0
+    total_recall_1 = 0.0
+
+    for item in report:
+        precision_0 = item[2]['0']['precision']
+        recall_0 = item[2]['0']['recall']
+        precision_1 = item[2]['1']['precision']
+        recall_1 = item[2]['1']['recall']
+        total_precision_0 = total_precision_0 + precision_0
+        total_recall_0 = total_recall_0 + recall_0
+        total_precision_1 = total_precision_1 + precision_1
+        total_recall_1 = total_recall_1 + recall_1
+
+    average_precision_0 = total_precision_0 / len(report)
+    average_recall_0 = total_recall_0 / len(report)
+    average_precision_1 = total_precision_1 / len(report)
+    average_recall_1 = total_recall_1 / len(report)
+
+    print("Class 0 Average Precision:", average_precision_0)
+    print("Class 0 Average Recall:", average_recall_0)
+    print("Class 1 Average Precision:", average_precision_1)
+    print("Class 1 Average Recall:", average_recall_1)
+
+
 def save_report(result_list, file_path):
     file = open(file_path, "a+")
     file.truncate(0)
@@ -240,12 +268,15 @@ if __name__ == "__main__":
     score = compute_fisher_score(counts, training_data_frame, training_data_stats, os.getcwd() + os.sep + "fisher_score_training.csv")
 
     dt_report = decision_tree_k_fold(training_data_frame, 10)
+    average_report(dt_report)
     save_report(dt_report, os.getcwd() + os.sep + "report_dt.csv")
 
     adaboost_report = adaboost_k_fold(training_data_frame, 10)
+    average_report(adaboost_report)
     save_report(adaboost_report, os.getcwd() + os.sep + "report_adaboost.csv")
 
     gb_report = gradientBoost_k_fold(training_data_frame, 10)
+    average_report(gb_report)
     save_report(gb_report, os.getcwd() + os.sep + "report_gradientboost.csv")
 
     dt_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "final_dt.csv")
