@@ -46,7 +46,7 @@ def shannon_entropy(data):
     pd_series = pd.Series(data)
     counts = pd_series.value_counts()
     print("Shannon Entropy:", entropy(counts, base=2))
-    print(counts)
+    print(counts, "\n")
     return counts
 
 
@@ -76,12 +76,10 @@ def compute_fisher_score(counts, data_frame, stats, file_path):
 
 
 def average_report(report):
-
     total_precision_0 = 0.0
     total_recall_0 = 0.0
     total_precision_1 = 0.0
     total_recall_1 = 0.0
-
     for item in report:
         precision_0 = item[2]['0']['precision']
         recall_0 = item[2]['0']['recall']
@@ -91,12 +89,10 @@ def average_report(report):
         total_recall_0 = total_recall_0 + recall_0
         total_precision_1 = total_precision_1 + precision_1
         total_recall_1 = total_recall_1 + recall_1
-
     average_precision_0 = total_precision_0 / len(report)
     average_recall_0 = total_recall_0 / len(report)
     average_precision_1 = total_precision_1 / len(report)
     average_recall_1 = total_recall_1 / len(report)
-
     print("Class 0 Average Precision:", average_precision_0)
     print("Class 0 Average Recall:", average_recall_0)
     print("Class 1 Average Precision:", average_precision_1)
@@ -253,34 +249,35 @@ def gradientBoost_generate_final_data(training_data_frame, test_data_frame, save
 
 
 if __name__ == "__main__":
+    if not os.path.exists(os.getcwd() + os.sep + "results"): os.mkdir(os.getcwd() + os.sep + "results")
     training_data_frame = pd.read_excel(os.getcwd() + os.sep + "CMPT459DataSetforStudents.xls", sheet_name="Training Data", header=None)
     test_data_frame = pd.read_excel(os.getcwd() + os.sep + "CMPT459DataSetforStudents.xls", sheet_name="Test data", header=None)
     training_data_frame.columns = list(string.ascii_lowercase)[0:training_data_frame.shape[1]]
     test_data_frame.columns = list(string.ascii_lowercase)[0:test_data_frame.shape[1]]
 
-    training_data_stats = get_statistics(training_data_frame, os.getcwd() + os.sep + "stats_training.csv")
-    test_data_stats = get_statistics(test_data_frame, os.getcwd() + os.sep + "stats_test.csv")
+    training_data_stats = get_statistics(training_data_frame, os.getcwd() + os.sep + "results" + os.sep + "stats_training.csv")
+    test_data_stats = get_statistics(test_data_frame, os.getcwd() + os.sep + "results" + os.sep + "stats_test.csv")
 
-    df2db("data.db", "training_dataset", training_data_frame)
-    df2db("data.db", "test_dataset", test_data_frame)
+    df2db(os.getcwd() + os.sep + "results" + os.sep + "data.db", "training_dataset", training_data_frame)
+    df2db(os.getcwd() + os.sep + "results" + os.sep + "data.db", "test_dataset", test_data_frame)
 
     counts = shannon_entropy(list(training_data_frame[list(string.ascii_lowercase)[0:training_data_frame.shape[1]][-1]]))
-    score = compute_fisher_score(counts, training_data_frame, training_data_stats, os.getcwd() + os.sep + "fisher_score_training.csv")
+    score = compute_fisher_score(counts, training_data_frame, training_data_stats, os.getcwd() + os.sep + "results" + os.sep + "fisher_score_training.csv")
 
     dt_report = decision_tree_k_fold(training_data_frame, 10)
     average_report(dt_report)
-    save_report(dt_report, os.getcwd() + os.sep + "report_dt.csv")
+    save_report(dt_report, os.getcwd() + os.sep + "results" + os.sep + "report_dt.csv")
 
     adaboost_report = adaboost_k_fold(training_data_frame, 10)
     average_report(adaboost_report)
-    save_report(adaboost_report, os.getcwd() + os.sep + "report_adaboost.csv")
+    save_report(adaboost_report, os.getcwd() + os.sep + "results" + os.sep + "report_adaboost.csv")
 
     gb_report = gradientBoost_k_fold(training_data_frame, 10)
     average_report(gb_report)
-    save_report(gb_report, os.getcwd() + os.sep + "report_gradientboost.csv")
+    save_report(gb_report, os.getcwd() + os.sep + "results" + os.sep + "report_gradientboost.csv")
 
-    dt_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "final_dt.csv")
-    adaboost_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "final_adaboost.csv")
-    gradientBoost_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "final_gradientboost.csv")
+    dt_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "results" + os.sep + "final_dt.csv")
+    adaboost_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "results" + os.sep + "final_adaboost.csv")
+    gradientBoost_generate_final_data(training_data_frame, test_data_frame, os.getcwd() + os.sep + "results" + os.sep + "final_gradientboost.csv")
 
     print("EOS")
