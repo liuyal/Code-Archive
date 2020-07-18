@@ -1,0 +1,24 @@
+Q1
+Initialization complete
+Iteration 0, inertia 18486653.748680256
+Iteration 1, inertia 14057525.52820399
+Iteration 2, inertia 13369248.34725732
+Iteration 3, inertia 12979047.74367086
+Iteration 4, inertia 12652305.36728428
+Iteration 5, inertia 12242894.284469696
+Iteration 6, inertia 11919285.37755754
+Iteration 7, inertia 11763189.350483743
+Iteration 8, inertia 11696311.738637008
+Iteration 9, inertia 11652923.987789232
+Iteration 10, inertia 11621849.47717183
+Iteration 11, inertia 11597610.094692158
+Iteration 12, inertia 11574273.324474312
+Iteration 13, inertia 11558534.679503711
+Iteration 14, inertia 11548952.77878506
+Iteration 15, inertia 11543246.396051487
+Iteration 16, inertia 11538763.91758443
+Iteration 17, inertia 11535876.026680931
+Iteration 18, inertia 11534142.194292666
+Iteration 19, inertia 11533061.043906353
+Iteration 20, inertia 11532262.219442029
+Converged at iteration 20: center shift 0.17229618627414 within tolerance 0.6309756824730974
