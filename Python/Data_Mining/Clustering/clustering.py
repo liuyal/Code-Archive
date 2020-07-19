@@ -6,8 +6,6 @@ import shutil
 import csv
 import copy
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn import metrics
 from sklearn.cluster import KMeans
 
 
@@ -36,7 +34,7 @@ def calculate_k_means_Q1(training_data_frame):
     copy_frame = copy.deepcopy(training_data_frame)
     df = copy_frame.drop(training_data_frame.columns[0], axis=1)
     kmeans = KMeans(n_init=1, n_clusters=10, max_iter=100, verbose=True)
-    cluster = kmeans.fit(df)
+    kmeans.fit(df)
 
 
 def calculate_k_means_Q2(training_data_frame):
@@ -47,27 +45,54 @@ def calculate_k_means_Q2(training_data_frame):
     for k in k_range:
         print("\n****************** Number of Clusters: " + str(k) + " ******************")
         kmeans = KMeans(n_init=10, n_clusters=k, max_iter=100, verbose=True)
-        cluster = kmeans.fit(df)
+        kmeans.fit(df)
 
 
 def calculate_k_means_Q3(training_data_frame):
     print("\nQ3")
-
     k_range = [10, 20, 30, 50]
     copy_frame = copy.deepcopy(training_data_frame)
     df = copy_frame.drop(training_data_frame.columns[0], axis=1)
+    purity_list = []
 
     for k in k_range:
         print("\n****************** Number of Clusters: " + str(k) + " ******************")
-        kmeans = KMeans(n_init=10, n_clusters=k, max_iter=100, verbose=True)
-        cluster = kmeans.fit(df)
+        kmeans = KMeans(n_init=10, n_clusters=k, max_iter=100, verbose=False)
+        kmeans.fit(df)
 
-    return 0
+        temp_frame = copy.deepcopy(training_data_frame)
+        temp_frame.insert(0, "cluster", kmeans.labels_, True)
+
+        purity = 0.0
+        for i in range(0, 10):
+            cluster_set = temp_frame[temp_frame["cluster"] == i]
+            class_n = cluster_set[cluster_set["class"] == "n"]
+            class_w = cluster_set[cluster_set["class"] == "w"]
+            purity = purity + max(len(class_n), len(class_w)) / len(class_n)
+        purity_list.append((k, purity / 10))
+        print(k, ",", purity / 10)
 
 
-def calculate_k_means_Q4(training_data_frame):
+def calculate_k_means_Q4(training_data_frame, test_data_frame):
     print("\nQ4")
-    return 0
+    training_copy_frame = copy.deepcopy(training_data_frame)
+    training_df = training_copy_frame.drop(training_data_frame.columns[0], axis=1)
+    test_copy_frame = copy.deepcopy(test_data_frame)
+    test_df = test_copy_frame.drop(test_data_frame.columns[0], axis=1)
+
+    for k in range(10, 31):
+        print("\n****************** Number of Clusters: " + str(k) + " ******************")
+        kmeans = KMeans(n_init=10, n_clusters=k, max_iter=100, verbose=False)
+        kmeans.fit(training_df)
+
+        sse_list_total = []
+        for row in test_df.values.tolist():
+            sse_list = []
+            for center in kmeans.cluster_centers_:
+                sse = sum(([float(item) for item in row] - center) ** 2)
+                sse_list.append(sse)
+            sse_list_total.append(min(sse_list))
+        print(sum(sse_list_total))
 
 
 def find_min_sse(folder_path):
@@ -76,16 +101,13 @@ def find_min_sse(folder_path):
             f = open(folder_path + os.sep + file, "r")
             text = f.readlines()
             f.close()
-
             values = []
-
             print(file)
-
             for i in range(0, len(text)):
                 if "Converged at" in text[i]:
                     values.append(float(text[i - 1].replace('\n', '').split(' ')[-1]))
                     print(text[i - 1].replace('\n', ''))
-            print("Min: ", min(values))
+            print("Min:", min(values))
 
 
 if __name__ == "__main__":
@@ -95,9 +117,9 @@ if __name__ == "__main__":
     training_data_frame = pd.DataFrame(training_data, columns=training_header)
     test_data_frame = pd.DataFrame(test_data, columns=test_header)
 
-    # calculate_k_means_Q1(training_data_frame)
-    # calculate_k_means_Q2(training_data_frame)
-    # calculate_k_means_Q3(training_data_frame)
-    # calculate_k_means_Q4(training_data_frame)
+    calculate_k_means_Q1(training_data_frame)
+    calculate_k_means_Q2(training_data_frame)
+    calculate_k_means_Q3(training_data_frame)
+    calculate_k_means_Q4(training_data_frame, test_data_frame)
 
     find_min_sse(os.getcwd() + os.sep + "results")
