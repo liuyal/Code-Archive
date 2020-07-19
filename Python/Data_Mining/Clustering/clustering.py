@@ -84,7 +84,7 @@ def calculate_k_means_Q4(training_data_frame, test_data_frame, folder_path):
         kmeans = KMeans(n_init=10, n_clusters=k, max_iter=100, verbose=False)
         kmeans.fit(training_df)
 
-        file = open(folder_path + os.sep + "Q4_k" + str(k), 'a+')
+        file = open(folder_path + os.sep + "Q4_k" + str(k) + ".csv", 'a+')
         file.truncate(0)
         file.write(",".join(test_data_frame.columns) + ",SSE\n")
         sse_list_total = []
@@ -122,9 +122,9 @@ if __name__ == "__main__":
     training_data_frame = pd.DataFrame(training_data, columns=training_header)
     test_data_frame = pd.DataFrame(test_data, columns=test_header)
 
-    # calculate_k_means_Q1(training_data_frame)
-    # calculate_k_means_Q2(training_data_frame)
-    # calculate_k_means_Q3(training_data_frame)
+    calculate_k_means_Q1(training_data_frame)
+    calculate_k_means_Q2(training_data_frame)
+    calculate_k_means_Q3(training_data_frame)
     calculate_k_means_Q4(training_data_frame, test_data_frame, os.getcwd() + os.sep + "results")
 
-    # find_min_sse(os.getcwd() + os.sep + "results")
+    find_min_sse(os.getcwd() + os.sep + "results")
