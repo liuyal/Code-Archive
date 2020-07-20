@@ -61,15 +61,14 @@ def calculate_k_means_Q3(training_data_frame):
         kmeans.fit(df)
         temp_frame = copy.deepcopy(training_data_frame)
         temp_frame.insert(0, "cluster", kmeans.labels_, True)
-
         purity = 0.0
         for i in range(0, 10):
             cluster_set = temp_frame[temp_frame["cluster"] == i]
             class_n = cluster_set[cluster_set["class"] == "n"]
             class_w = cluster_set[cluster_set["class"] == "w"]
-            purity = purity + max(len(class_n), len(class_w)) / len(class_n)
+            purity = purity + max(len(class_w), len(class_n) - len(class_w)) / len(class_n)
         purity_list.append((k, purity / 10))
-        print(k, ",", purity / 10)
+        print(str(k) + "," + str(purity / 10))
 
 
 def calculate_k_means_Q4(training_data_frame, test_data_frame, folder_path):
@@ -79,14 +78,13 @@ def calculate_k_means_Q4(training_data_frame, test_data_frame, folder_path):
     test_copy_frame = copy.deepcopy(test_data_frame)
     test_df = test_copy_frame.drop(test_data_frame.columns[0], axis=1)
 
+    file = open(folder_path + os.sep + "Q4.csv", 'a+')
+    file.truncate(0)
+    file.write("k,SSE\n")
     for k in range(10, 31):
         print("\n****************** Number of Clusters: " + str(k) + " ******************")
         kmeans = KMeans(n_init=10, n_clusters=k, max_iter=100, verbose=False)
         kmeans.fit(training_df)
-
-        file = open(folder_path + os.sep + "Q4_k" + str(k) + ".csv", 'a+')
-        file.truncate(0)
-        file.write(",".join(test_data_frame.columns) + ",SSE\n")
         sse_list_total = []
         for row in test_copy_frame.values.tolist():
             sse_list = []
@@ -94,10 +92,10 @@ def calculate_k_means_Q4(training_data_frame, test_data_frame, folder_path):
                 sse = sum(([float(item) for item in row if item != 'n' and item != 'w'] - center) ** 2)
                 sse_list.append(sse)
             sse_list_total.append(min(sse_list))
-            file.write(",".join(row) + "," + str(min(sse_list))  +  '\n')
-            file.flush()
-        file.close()
         print(sum(sse_list_total))
+        file.write(str(k) + "," + str(sum(sse_list_total)) + "\n")
+        file.flush()
+    file.close()
 
 
 def find_min_sse(folder_path):
