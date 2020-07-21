@@ -6,6 +6,7 @@ import statistics
 import sqlite3
 import operator
 import copy
+import random
 import pandas as pd
 import numpy as np
 from scipy.stats import entropy
@@ -178,6 +179,19 @@ def gradientBoost_k_fold(training_data_frame, k=10):
     copy_frame = copy.deepcopy(training_data_frame)
     x_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
     y_data = copy_frame[training_data_frame.columns[-1]]
+
+    x_data.insert(0, "AB", x_data[training_data_frame.columns[0]] * x_data[training_data_frame.columns[1]], True)
+    x_data.insert(0, "CD", x_data[training_data_frame.columns[2]] * x_data[training_data_frame.columns[3]], True)
+    x_data.insert(0, "EF", x_data[training_data_frame.columns[4]] * x_data[training_data_frame.columns[5]], True)
+    x_data.insert(0, "GH", x_data[training_data_frame.columns[6]] * x_data[training_data_frame.columns[7]], True)
+    x_data.insert(0, "IJ", x_data[training_data_frame.columns[8]] * x_data[training_data_frame.columns[9]], True)
+    x_data.insert(0, "KL", x_data[training_data_frame.columns[10]] * x_data[training_data_frame.columns[11]], True)
+    x_data.insert(0, "MN", x_data[training_data_frame.columns[12]] * x_data[training_data_frame.columns[13]], True)
+    x_data.insert(0, "OP", x_data[training_data_frame.columns[14]] * x_data[training_data_frame.columns[15]], True)
+    x_data.insert(0, "QR", x_data[training_data_frame.columns[16]] * x_data[training_data_frame.columns[17]], True)
+    x_data.insert(0, "ST", x_data[training_data_frame.columns[18]] * x_data[training_data_frame.columns[19]], True)
+    x_data.insert(0, "UV", x_data[training_data_frame.columns[20]] * x_data[training_data_frame.columns[21]], True)
+
     result_list = []
     for i in range(0, k):
         lower_bound = int(i * training_data_frame.shape[0] / k)
@@ -187,7 +201,7 @@ def gradientBoost_k_fold(training_data_frame, k=10):
         x_data_train_subset = pd.concat([x_data[0:lower_bound], x_data[upper_bound:]])
         y_data_train_subset = pd.concat([y_data[0:lower_bound], y_data[upper_bound:]])
 
-        gb_clf = GradientBoostingClassifier(n_estimators=200, learning_rate=0.5, max_features=2, max_depth=2, random_state=0)
+        gb_clf = GradientBoostingClassifier(n_estimators=200, learning_rate=0.2, max_features=6, max_depth=2, random_state=0)
         gb_clf.fit(x_data_train_subset, y_data_train_subset)
         y_predicted = gb_clf.predict(x_data_test_subset)
 
@@ -237,9 +251,35 @@ def gradientBoost_generate_final_data(training_data_frame, test_data_frame, save
     x_train_data = copy_frame.drop(training_data_frame.columns[-1], axis=1)
     y_train_data = copy_frame[training_data_frame.columns[-1]]
 
-    gb_clf = GradientBoostingClassifier(n_estimators=200, learning_rate=0.5, max_features=2, max_depth=2, random_state=0)
+    x_train_data.insert(0, "AB", x_train_data[training_data_frame.columns[0]] * x_train_data[training_data_frame.columns[1]], True)
+    x_train_data.insert(0, "CD", x_train_data[training_data_frame.columns[2]] * x_train_data[training_data_frame.columns[3]], True)
+    x_train_data.insert(0, "EF", x_train_data[training_data_frame.columns[4]] * x_train_data[training_data_frame.columns[5]], True)
+    x_train_data.insert(0, "GH", x_train_data[training_data_frame.columns[6]] * x_train_data[training_data_frame.columns[7]], True)
+    x_train_data.insert(0, "IJ", x_train_data[training_data_frame.columns[8]] * x_train_data[training_data_frame.columns[9]], True)
+    x_train_data.insert(0, "KL", x_train_data[training_data_frame.columns[10]] * x_train_data[training_data_frame.columns[11]], True)
+    x_train_data.insert(0, "MN", x_train_data[training_data_frame.columns[12]] * x_train_data[training_data_frame.columns[13]], True)
+    x_train_data.insert(0, "OP", x_train_data[training_data_frame.columns[14]] * x_train_data[training_data_frame.columns[15]], True)
+    x_train_data.insert(0, "QR", x_train_data[training_data_frame.columns[16]] * x_train_data[training_data_frame.columns[17]], True)
+    x_train_data.insert(0, "ST", x_train_data[training_data_frame.columns[18]] * x_train_data[training_data_frame.columns[19]], True)
+    x_train_data.insert(0, "UV", x_train_data[training_data_frame.columns[20]] * x_train_data[training_data_frame.columns[21]], True)
+
+    x_test_data = copy.deepcopy(test_data_frame)
+
+    x_test_data.insert(0, "AB", x_test_data[test_data_frame.columns[0]] * x_test_data[test_data_frame.columns[1]], True)
+    x_test_data.insert(0, "CD", x_test_data[test_data_frame.columns[2]] * x_test_data[test_data_frame.columns[3]], True)
+    x_test_data.insert(0, "EF", x_test_data[test_data_frame.columns[4]] * x_test_data[test_data_frame.columns[5]], True)
+    x_test_data.insert(0, "GH", x_test_data[test_data_frame.columns[6]] * x_test_data[test_data_frame.columns[7]], True)
+    x_test_data.insert(0, "IJ", x_test_data[test_data_frame.columns[8]] * x_test_data[test_data_frame.columns[9]], True)
+    x_test_data.insert(0, "KL", x_test_data[test_data_frame.columns[10]] * x_test_data[test_data_frame.columns[11]], True)
+    x_test_data.insert(0, "MN", x_test_data[test_data_frame.columns[12]] * x_test_data[test_data_frame.columns[13]], True)
+    x_test_data.insert(0, "OP", x_test_data[test_data_frame.columns[14]] * x_test_data[test_data_frame.columns[15]], True)
+    x_test_data.insert(0, "QR", x_test_data[test_data_frame.columns[16]] * x_test_data[test_data_frame.columns[17]], True)
+    x_test_data.insert(0, "ST", x_test_data[test_data_frame.columns[18]] * x_test_data[test_data_frame.columns[19]], True)
+    x_test_data.insert(0, "UV", x_test_data[test_data_frame.columns[20]] * x_test_data[test_data_frame.columns[21]], True)
+
+    gb_clf = GradientBoostingClassifier(n_estimators=200, learning_rate=0.2, max_features=6, max_depth=2, random_state=0)
     gb_clf.fit(x_train_data, y_train_data)
-    y_predicted = gb_clf.predict(test_data_frame)
+    y_predicted = gb_clf.predict(x_test_data)
 
     file = open(save_path, "a+")
     file.truncate(0)
