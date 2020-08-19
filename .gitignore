@@ -10,4 +10,5 @@ target/
 C++/yase/
 
 *.token
+sfu.PDF
 git_commit.py
