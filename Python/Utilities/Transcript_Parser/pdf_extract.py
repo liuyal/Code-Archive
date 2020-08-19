@@ -106,7 +106,7 @@ def organizer(text):
     for item in result:
         if '\t' not in item:
             year = item
-        else:
+        elif "*" not in item:
             class_name = item.split('\t')[1]
             class_credit_count = item.split('\t')[2]
             class_letter_grade = item.split('\t')[3]
@@ -124,15 +124,24 @@ def organizer(text):
 
 
 def ud_gpa_calculator(data, level):
-
     classes = []
 
     for item in data:
         if int(data[item]["level"]) == int(level):
             classes.append(data[item])
 
-    for item in classes
+    points = 0.0
+    grade_points = 0.0
+    credits = 0.0
+    for item in classes:
+        points = float(item["credit_count"]) + points
+        grade_points = float(item["grade_point"]) + grade_points
+        credits = float(item["credit_count"]) + credits
 
+    print(str(level) + " Level Stats")
+    print("GPA: " + str(grade_points / points))
+    print("Number of classes: " + str(len(classes)))
+    print("Number of Credits: " + str(credits) + '\n')
 
     return 0
 
@@ -149,4 +158,7 @@ if __name__ == "__main__":
     text_parsed = parser(pages)
     classes = organizer("".join(text_parsed))
 
+    ud_gpa_calculator(classes, 100)
+    ud_gpa_calculator(classes, 200)
+    ud_gpa_calculator(classes, 300)
     ud_gpa_calculator(classes, 400)
