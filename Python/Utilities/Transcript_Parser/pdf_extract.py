@@ -141,7 +141,8 @@ def ud_gpa_calculator(data, level):
     print(str(level) + " Level Stats")
     print("GPA: " + str(grade_points / points))
     print("Number of classes: " + str(len(classes)))
-    print("Number of Credits: " + str(credits) + '\n')
+    print("Number of Credits: " + str(credits))
+    print("Total Grade Points: " + str(grade_points) + '\n')
 
     return 0
 
