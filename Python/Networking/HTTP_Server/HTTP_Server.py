@@ -61,6 +61,4 @@ def runServer(HostIP="0.0.0.0", HostPort=8080, handler=HTTPRequestHandler):
 
 
 if __name__ == "__main__":
-
-
     runServer()
