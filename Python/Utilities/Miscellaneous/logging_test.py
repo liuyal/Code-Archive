@@ -15,9 +15,9 @@ def cslog(msg, flag="info"):
 
 if __name__ == "__main__":
 
-	logging.basicConfig(filename="./logging_test.log", filemode='a', format='%(asctime)s, [%(levelname)s] %(name)s, %(message)s', datefmt='%Y-%m-%d %H:%M:%S', level=logging.DEBUG)
-	logging.info("Test Log info")
-	logging.error("Test Log ERROR")
-	logging.warning("Test Log warning")
+    logging.basicConfig(filename="./logging_test.log", filemode='a', format='%(asctime)s, [%(levelname)s] %(name)s, %(message)s', datefmt='%Y-%m-%d %H:%M:%S', level=logging.DEBUG)
+    logging.info("Test Log info")
+    logging.error("Test Log ERROR")
+    logging.warning("Test Log warning")
 
-	cslog("Logger Test", "info")
+    cslog("Logger Test", "info")
