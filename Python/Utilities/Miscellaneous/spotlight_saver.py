@@ -25,7 +25,6 @@ if __name__ == "__main__":
     if not os.path.exists(dst + os.sep + time_stamp):
         os.makedirs(dst + os.sep + time_stamp)
     for item in os.listdir(src):
-        # if item is right size
         shutil.copy(src + os.sep + item, dst + os.sep + time_stamp + os.sep + item + ".png")
 
     # Check for duplicate images in different date folders
@@ -68,14 +67,18 @@ if __name__ == "__main__":
             if im.shape[0] < 100:
                 os.remove(dst + os.sep + time_stamp + os.sep + image)
 
-    size_gb = str(round(get_size(start_path=dst) / 1024 / 1024 / 1024, 3)) + " GB"
-    print("Size:", size_gb)
+    # Read count and size of images and write to readme
+    size_gb = str(round(get_size(start_path=dst) / 1000 / 1000 / 1000, 3)) + " GB"
+    print("\nImage Count: " + str(len(images)))
+    print("Size: " + str(size_gb) + "\n")
 
     file = open(dst + os.sep + "README.md", "r+")
     text = file.readlines()
     file.close()
 
     for line in text:
+        if "count:" in line.lower():
+            text[text.index(line)] = "Image Count: " + str(len(images)) + "\n\n"
         if "size" in line.lower():
             text[text.index(line)] = "Size: " + size_gb + "\n"
 
@@ -85,5 +88,6 @@ if __name__ == "__main__":
     file.flush()
     file.close()
 
+    # Commit images to github
     os.system(r"cd " + dst + " && python " + dst + r"\git_commit.py")
     time.sleep(5)
