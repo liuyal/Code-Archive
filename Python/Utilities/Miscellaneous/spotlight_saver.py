@@ -18,7 +18,9 @@ def get_size(start_path='.'):
 
 
 if __name__ == "__main__":
-    src = r"C:\Users\Jerry\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"
+
+    src = r"C:\Users\USER\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"
+    src = src.replace("USER", os.getlogin())
     dst = r"E:\Picture\SpotLightSaver"
 
     time_stamp = datetime.datetime.now().strftime("%Y%m%d")
@@ -64,7 +66,7 @@ if __name__ == "__main__":
     for image in os.listdir(dst + os.sep + time_stamp):
         if ".png" in image:
             im = cv2.imread(dst + os.sep + time_stamp + os.sep + image)
-            if im.shape[0] < 100:
+            if im.shape[0] < 900:
                 os.remove(dst + os.sep + time_stamp + os.sep + image)
 
     # Read count and size of images and write to readme
@@ -78,7 +80,7 @@ if __name__ == "__main__":
 
     for line in text:
         if "count:" in line.lower():
-            text[text.index(line)] = "Image Count: " + str(len(images)) + "\n\n"
+            text[text.index(line)] = "Image Count: " + str(len(images)) + "\n"
         if "size" in line.lower():
             text[text.index(line)] = "Size: " + size_gb + "\n"
 
