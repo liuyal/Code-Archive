@@ -23,17 +23,26 @@ if __name__ == "__main__":
     src = src.replace("USER", os.getlogin())
     dst = r"E:\Picture\SpotLightSaver"
 
+    # Make new folder for new day
     time_stamp = datetime.datetime.now().strftime("%Y%m%d")
     if not os.path.exists(dst + os.sep + time_stamp):
         os.makedirs(dst + os.sep + time_stamp)
-    for item in os.listdir(src):
-        shutil.copy(src + os.sep + item, dst + os.sep + time_stamp + os.sep + item + ".png")
+
+    # Copy src image to dst and rename portrait images
+    for image in os.listdir(src):
+        shutil.copy(src + os.sep + image, dst + os.sep + time_stamp + os.sep + image + ".png")
+        if os.path.exists(dst + os.sep + time_stamp + os.sep + image + "_pi.png"):
+            os.remove(dst + os.sep + time_stamp + os.sep + image + "_pi.png")
+        im = cv2.imread(dst + os.sep + time_stamp + os.sep + image + ".png")
+        if im.shape[0] > im.shape[1]:
+            shutil.copy(dst + os.sep + time_stamp + os.sep + image + ".png", dst + os.sep + time_stamp + os.sep + image + "_pi.png")
+            os.remove(dst + os.sep + time_stamp + os.sep + image + ".png")
 
     # Check for duplicate images in different date folders
     images = []
     remove_list = {}
     for item in os.listdir(dst):
-        if os.path.isdir(dst + os.sep + item) and ".git" not in item:
+        if os.path.isdir(dst + os.sep + item) and '.' not in item:
             for file in os.listdir(dst + os.sep + item):
                 try:
                     remove_list[file]
@@ -68,6 +77,17 @@ if __name__ == "__main__":
             im = cv2.imread(dst + os.sep + time_stamp + os.sep + image)
             if im.shape[0] < 900:
                 os.remove(dst + os.sep + time_stamp + os.sep + image)
+
+    # Rename photos
+    # for folder in os.listdir(dst):
+    #     if '.' not in folder and os.path.isdir(dst + os.sep + folder):
+    #         for image in os.listdir(dst + os.sep + folder):
+    #             print(dst + os.sep + folder + os.sep + image)
+    #             im = cv2.imread(dst + os.sep + folder + os.sep + image)
+    #             if im.shape[0] > im.shape[1]:
+    #                 dst_image = image.split('.')[0] + "_pi." + image.split('.')[1]
+    #                 shutil.copy(dst + os.sep + folder + os.sep + image, dst + os.sep + folder + os.sep + dst_image)
+    #                 os.remove(dst + os.sep + folder + os.sep + image)
 
     # Read count and size of images and write to readme
     size_gb = str(round(get_size(start_path=dst) / 1000 / 1000 / 1000, 3)) + " GB"
