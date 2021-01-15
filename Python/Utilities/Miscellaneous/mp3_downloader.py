@@ -10,7 +10,7 @@ files = ["01 - Faith", "02 - Release", "03 - Birdman", "04 - Downtown District",
 for file_name in files:
     try:
         download_url = "http://23.237.126.42/ost/mirror-s-edge-catalyst/xokypvhaue/"+file_name.replace(' ','%20')+".mp3"
-        print download_url
+        print(download_url)
         response = urllib2.urlopen(download_url)
         file = open(file_name.replace("%20",''), 'wb')
         file.write(response.read())

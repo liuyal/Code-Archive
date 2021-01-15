@@ -138,7 +138,7 @@ if __name__ == "__main__":
     dimension = {"a", "b", "c", "d"}
     output = {}
 
-    buc_data_set = load_data("data.csv")
+    buc_data_set = load_data("data1.csv")
     buc_output = buc(buc_data_set, [], 0, 1)
 
     for item in buc_output:
