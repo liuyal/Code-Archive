@@ -2,16 +2,14 @@ import os
 import sys
 import time
 import subprocess
-import argparse
-import colorama
+import threading
 import random
 import math
 import numpy
 import pynput
-import threading
 
 
-class node():
+class Node():
 
     def __init__(self, id):
         self.id = id
@@ -22,25 +20,29 @@ class node():
         self.ptr_right = None
 
 
-class grid():
+class Grid():
 
     def __init__(self, n=4):
         self.size = n
         self.score = 0
         self.nodes = []
+        self.index_up = 0
+        self.index_down = 1
+        self.index_left = 2
+        self.index_right = 3
 
         # Create rows of nodes
         id_counter = 0
         for i in range(0, n):
             node_list = []
             for j in range(0, n):
-                new_node = node(id_counter)
+                new_node = Node(id_counter)
                 node_list.append(new_node)
                 id_counter += 1
             self.nodes.append(node_list)
 
         # Generate random Index for starting values
-        start_indexes = random.sample(range(0, size * size - 1), math.ceil(size / 2))
+        start_indexes = random.sample(range(0, self.size * self.size - 1), math.ceil(self.size / 2))
 
         # Node linkage and value assignment
         for i in range(0, len(self.nodes)):
@@ -85,7 +87,7 @@ class grid():
                 else:
                     current_node.ptr_down = next_row[j]
 
-    def new_value(self):
+    def new_node(self):
         done = False
         while not done:
             index = random.randrange(0, self.size * self.size - 1)
@@ -95,38 +97,56 @@ class grid():
                         item.value = numpy.random.choice([2, 4], p=[0.95, 0.05])
                         done = True
 
+    def sum_nodes(self, node_values):
+        value_list = list(filter((0).__ne__, node_values))
+        for _ in range(0, self.size):
+            value_list.append(0)
+            for n in range(0, len(value_list) - 1):
+                if value_list[n] == value_list[n + 1]:
+                    value_list[n] += value_list[n + 1]
+                    value_list[n + 1] = 0
+            value_list = list(filter((0).__ne__, value_list))
+        value_list += [0] * (self.size - len(value_list))
+        value_list.reverse()
+        return value_list
+
+    def slide_nodes(self, direction):
+        for k in range(0, self.size, 1):
+            stack = []
+
+            if direction == self.index_up:
+                print()
+            elif direction == self.index_down:
+                for n in range(self.size - 1, -1, -1):
+                    node = self.nodes[n][k]
+                    stack.append(node.value)
+            elif direction == self.index_left:
+                print()
+            elif direction == self.index_right:
+                print()
+
+            result = self.sum_nodes(stack)
+
+            for n in range(self.size - 1, -1, -1):
+                self.nodes[n][k].value = result[n]
+
     def print_grid(self):
         for row in self.nodes:
             for item in row:
                 print(item.value, end=" ")
             print()
-
-    def slide_values(self, direction):
-
-        if direction == 1:
-
-            for n in range(self.size-1, 0, -1):
-
-                for k in range(0, self.size, 1):
-
-                    current_row = self.nodes[n]
-
-
-                    current_node = current_row[k]
-
-
-
+        print()
 
     def on_press(self, key):
         try:
             if key == pynput.keyboard.Key.up:
-                self.slide_values(0)
+                self.slide_nodes(self.index_up)
             if key == pynput.keyboard.Key.down:
-                self.slide_values(1)
+                self.slide_nodes(self.index_down)
             if key == pynput.keyboard.Key.left:
-                self.slide_values(2)
+                self.slide_nodes(self.index_left)
             if key == pynput.keyboard.Key.right:
-                self.slide_values(3)
+                self.slide_nodes(self.index_right)
             if key == pynput.keyboard.Key.esc:
                 return False
         except Exception as e:
@@ -138,15 +158,3 @@ class grid():
     def run(self):
         with pynput.keyboard.Listener(on_press=self.on_press, on_release=self.on_release) as listener:
             listener.join()
-
-
-if __name__ == "__main__":
-    size = 4
-    game = grid(size)
-    game.print_grid()
-
-    game.slide_values(1)
-    print()
-    game.print_grid()
-
-    # game.run()
