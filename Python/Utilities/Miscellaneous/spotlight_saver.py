@@ -72,13 +72,14 @@ if __name__ == "__main__":
             shutil.rmtree(dst + os.sep + item)
 
     # Remove non spotlight images
-    for image in os.listdir(dst + os.sep + time_stamp):
-        if ".png" in image:
-            im = cv2.imread(dst + os.sep + time_stamp + os.sep + image)
-            if im.shape[0] < 900:
-                os.remove(dst + os.sep + time_stamp + os.sep + image)
+    if os.path.exists(dst + os.sep + time_stamp):
+        for image in os.listdir(dst + os.sep + time_stamp):
+            if ".png" in image:
+                im = cv2.imread(dst + os.sep + time_stamp + os.sep + image)
+                if im.shape[0] < 900:
+                    os.remove(dst + os.sep + time_stamp + os.sep + image)
 
-    # Rename photos
+    # Rename ALL photos
     # for folder in os.listdir(dst):
     #     if '.' not in folder and os.path.isdir(dst + os.sep + folder):
     #         for image in os.listdir(dst + os.sep + folder):
