@@ -3,6 +3,7 @@ import sys
 import time
 import subprocess
 import threading
+import copy
 import random
 import math
 import numpy
@@ -30,12 +31,14 @@ class Grid():
         self.index_down = 1
         self.index_left = 2
         self.index_right = 3
+        self.setup_grid()
 
+    def setup_grid(self):
         # Create rows of nodes
         id_counter = 0
-        for i in range(0, n):
+        for i in range(0, self.size):
             node_list = []
-            for j in range(0, n):
+            for j in range(0, self.size):
                 new_node = Node(id_counter)
                 node_list.append(new_node)
                 id_counter += 1
@@ -50,7 +53,7 @@ class Grid():
             if i == 0:
                 previous_row = None
                 next_row = self.nodes[i + 1]
-            elif i == n - 1:
+            elif i == self.size - 1:
                 previous_row = self.nodes[i - 1]
                 next_row = None
             else:
@@ -68,7 +71,7 @@ class Grid():
                 if j == 0:
                     previous_node = None
                     next_node = current_row[j + 1]
-                elif j == n - 1:
+                elif j == self.size - 1:
                     previous_node = current_row[j - 1]
                     next_node = None
                 else:
@@ -86,6 +89,7 @@ class Grid():
                     current_node.ptr_down = None
                 else:
                     current_node.ptr_down = next_row[j]
+        self.print_grid()
 
     def new_node(self):
         done = False
@@ -105,40 +109,65 @@ class Grid():
                 if value_list[n] == value_list[n + 1]:
                     value_list[n] += value_list[n + 1]
                     value_list[n + 1] = 0
+                    self.score += value_list[n]
             value_list = list(filter((0).__ne__, value_list))
         value_list += [0] * (self.size - len(value_list))
-        value_list.reverse()
         return value_list
 
     def slide_nodes(self, direction):
-        for k in range(0, self.size, 1):
-            stack = []
-
-            if direction == self.index_up:
-                print()
-            elif direction == self.index_down:
+        if direction == self.index_up:
+            for k in range(0, self.size, 1):
+                stack = []
+                for n in range(0, self.size, 1):
+                    node = self.nodes[n][k]
+                    stack.append(node.value)
+                result = self.sum_nodes(stack)
+                for n in range(0, self.size, 1):
+                    self.nodes[n][k].value = result[n]
+        elif direction == self.index_down:
+            for k in range(0, self.size, 1):
+                stack = []
                 for n in range(self.size - 1, -1, -1):
                     node = self.nodes[n][k]
                     stack.append(node.value)
-            elif direction == self.index_left:
-                print()
-            elif direction == self.index_right:
-                print()
+                result = self.sum_nodes(stack)
+                result.reverse()
+                for n in range(self.size - 1, -1, -1):
+                    self.nodes[n][k].value = result[n]
+        elif direction == self.index_left:
+            for k in range(0, self.size, 1):
+                stack = []
+                node_list = self.nodes[k]
+                for node in node_list:
+                    stack.append(node.value)
+                result = self.sum_nodes(stack)
+                for n in range(0, self.size, 1):
+                    self.nodes[k][n].value = result[n]
+        elif direction == self.index_right:
+            for k in range(0, self.size, 1):
+                stack = []
+                node_list = self.nodes[k]
+                for node in node_list:
+                    stack.insert(0, node.value)
+                result = self.sum_nodes(stack)
+                for n in range(0, self.size, 1):
+                    self.nodes[k][n].value = result[-1 * n - 1]
 
-            result = self.sum_nodes(stack)
-
-            for n in range(self.size - 1, -1, -1):
-                self.nodes[n][k].value = result[n]
+    def empty_grid(self):
+        for i in range(0, self.size):
+            for j in range(0, self.size):
+                self.nodes[i][j].value = 0
 
     def print_grid(self):
         for row in self.nodes:
             for item in row:
                 print(item.value, end=" ")
             print()
-        print()
+        print("Score:", self.score, "\n")
 
     def on_press(self, key):
         try:
+            old_grid = copy.deepcopy(self.nodes)
             if key == pynput.keyboard.Key.up:
                 self.slide_nodes(self.index_up)
             if key == pynput.keyboard.Key.down:
@@ -149,6 +178,15 @@ class Grid():
                 self.slide_nodes(self.index_right)
             if key == pynput.keyboard.Key.esc:
                 return False
+
+            for i in range(0, self.size):
+                for j in range(0, self.size):
+                    if old_grid[i][j].value != self.nodes[i][j].value:
+                        self.new_node()
+                        self.print_grid()
+                        return True
+            self.print_grid()
+
         except Exception as e:
             print(e)
 
