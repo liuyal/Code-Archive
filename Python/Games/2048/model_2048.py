@@ -33,7 +33,7 @@ class Grid():
         self.index_right = 3
         self.setup_grid()
 
-    def setup_grid(self):
+    def setup_grid(self, verbose=False):
         # Create rows of nodes
         id_counter = 0
         for i in range(0, self.size):
@@ -89,7 +89,8 @@ class Grid():
                     current_node.ptr_down = None
                 else:
                     current_node.ptr_down = next_row[j]
-        self.print_grid()
+        if verbose:
+            self.print_grid()
 
     def new_node(self):
         done = False
