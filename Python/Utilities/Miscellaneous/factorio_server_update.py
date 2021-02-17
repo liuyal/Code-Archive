@@ -6,9 +6,6 @@ import paramiko
 import argparse
 
 
-# TODO: add download save, add sync save (timestamp based)
-
-
 def upload_save(ssh, scp, local_path, server_path):
     print("Uploading Server Save File...")
 
@@ -41,11 +38,19 @@ def download_save(ssh, scp, local_path, server_path):
     scp.get(server_path, local_path)
     time.sleep(3)
 
+    print("Restarting factorio.service...")
+    ssh.exec_command('systemctl restart factorio.service')
+    time.sleep(3)
+
     stdin, stdout, stderr = ssh.exec_command('systemctl status factorio.service --no-pager')
     print("".join(stdout.readlines()) + "\nDownload Complete!")
 
 
 def restart(ssh):
+    print("Stopping factorio.service...")
+    ssh.exec_command('systemctl stop factorio.service')
+    time.sleep(3)
+    
     print("Restarting factorio.service...")
     ssh.exec_command('systemctl restart factorio.service')
     time.sleep(5)
