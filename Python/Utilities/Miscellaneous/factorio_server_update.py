@@ -95,4 +95,4 @@ if __name__ == "__main__":
             sys.exit("ERROR: Invalid Input")
 
     scp.close()
-    time.sleep(3)
+    time.sleep(10)
