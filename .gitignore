@@ -1,7 +1,6 @@
 .idea/
 .vscode/
 .ipynb_checkpoints/
-
 __pycache__/
 build/
 debug/
@@ -13,4 +12,6 @@ C++/yase/
 sfu.PDF
 headers_auth.json
 headers_auth_raw.txt
+Credentials.token
+client_secrets.json
 git_commit.py
