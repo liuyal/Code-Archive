@@ -4,7 +4,7 @@
 @set /p id=Enter: 
 
 @IF %id% == 0 (
-	netsh interface ip set address "Wi-Fi" static 192.168.1.80 255.255.255.0 192.168.1.254
+	netsh interface ip set address "Wi-Fi" static 192.168.1.200 255.255.255.0 192.168.1.254
 ) ELSE (
 	netsh interface ip set address "Wi-Fi" dhcp
 )

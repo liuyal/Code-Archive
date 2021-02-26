@@ -6,32 +6,36 @@ import paramiko
 import argparse
 
 
-def upload_save(ssh, scp, local_path, server_path):
+def upload_save(ssh, scp, pwd, local_path, server_path):
     print("Uploading Server Save File...")
 
     print("Stopping factorio.service...")
-    ssh.exec_command('systemctl stop factorio.service')
+    cmd = "echo " + pwd + " | sudo -S systemctl stop factorio.service"
+    stdin, stdout, stderr = ssh.exec_command(cmd)
     time.sleep(3)
 
     print("Uploading save zip file via SCP...")
     scp.put(local_path, server_path)
 
     print("Restarting factorio.service...")
-    ssh.exec_command('systemctl restart factorio.service')
+    cmd = "echo " + pwd + " | sudo -S systemctl restart factorio.service"
+    stdin, stdout, stderr = ssh.exec_command(cmd)
     time.sleep(3)
 
-    stdin, stdout, stderr = ssh.exec_command('systemctl status factorio.service --no-pager')
+    cmd = "echo " + pwd + " | sudo -S systemctl status factorio.service --no-pager"
+    stdin, stdout, stderr = ssh.exec_command(cmd)
     print("".join(stdout.readlines()))
 
-    stdin, stdout, stderr = ssh.exec_command('cd /opt/factorio/saves/; ls -al')
+    stdin, stdout, stderr = ssh.exec_command("ls -al /opt/factorio/saves/")
     print("".join(stdout.readlines()) + "\nUploading Complete!")
 
 
-def download_save(ssh, scp, local_path, server_path):
+def download_save(ssh, scp, pwd, local_path, server_path):
     print("Downloading Server Save File...")
 
     print("Stopping factorio.service...")
-    ssh.exec_command('systemctl stop factorio.service')
+    cmd = "echo " + pwd + " | sudo -S systemctl stop factorio.service"
+    stdin, stdout, stderr = ssh.exec_command(cmd)
     time.sleep(3)
 
     print("Downloading save zip file via SCP...")
@@ -39,60 +43,68 @@ def download_save(ssh, scp, local_path, server_path):
     time.sleep(3)
 
     print("Restarting factorio.service...")
-    ssh.exec_command('systemctl restart factorio.service')
+    cmd = "echo " + pwd + " | sudo -S systemctl restart factorio.service"
+    stdin, stdout, stderr = ssh.exec_command(cmd)
     time.sleep(3)
 
-    stdin, stdout, stderr = ssh.exec_command('systemctl status factorio.service --no-pager')
+    cmd = "echo " + pwd + " | sudo -S systemctl status factorio.service --no-pager"
+    stdin, stdout, stderr = ssh.exec_command(cmd)
     print("".join(stdout.readlines()) + "\nDownload Complete!")
 
 
-def restart(ssh):
+def restart(ssh, pwd):
     print("Stopping factorio.service...")
-    ssh.exec_command('systemctl stop factorio.service')
+    cmd = "echo " + pwd + " | sudo -S systemctl stop factorio.service"
+    stdin, stdout, stderr = ssh.exec_command(cmd)
     time.sleep(3)
-    
-    print("Restarting factorio.service...")
-    ssh.exec_command('systemctl restart factorio.service')
-    time.sleep(5)
 
-    stdin, stdout, stderr = ssh.exec_command('systemctl status factorio.service --no-pager')
+    print("Restarting factorio.service...")
+    cmd = "echo " + pwd + " | sudo -S systemctl restart factorio.service"
+    stdin, stdout, stderr = ssh.exec_command(cmd)
+    time.sleep(3)
+
+    cmd = "echo " + pwd + " | sudo -S systemctl status factorio.service --no-pager"
+    stdin, stdout, stderr = ssh.exec_command(cmd)
     print("".join(stdout.readlines()) + "\nRestart Complete!")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='', formatter_class=argparse.RawTextHelpFormatter)
-    parser.add_argument("-u", "--upload", action='store_true', help='Upload Server Save File')
-    parser.add_argument("-d", "--download", action='store_true', help='Download Server Save File')
-    parser.add_argument("-s", "--start", action='store_true', help='Start Server Factorio.service')
+    parser = argparse.ArgumentParser(description="", formatter_class=argparse.RawTextHelpFormatter)
+    parser.add_argument("-u", "--upload", action="store_true", help="Upload Server Save File")
+    parser.add_argument("-d", "--download", action="store_true", help="Download Server Save File")
+    parser.add_argument("-s", "--start", action="store_true", help="Start Server Factorio.service")
     inputs = parser.parse_args()
 
-    # local_save_path = os.getcwd() + os.sep + "saves" + os.sep + "wonderland.zip"
     local_save_path = r"F:\Game\Factorio\saves\wonderland.zip"
     server_save_path = r"/opt/factorio/saves/wonderland.zip"
-    server_ip = "192.168.1.120"
+
+    host_ip = "192.168.1.120"
+    user = "wolf"
+    password = "1234"
 
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(hostname=server_ip, username='root', password='1234', port=22)
+    ssh.connect(hostname=host_ip, username=user, password=password, port=22)
     scp = scp.SCPClient(ssh.get_transport())
 
     if inputs.upload:
-        upload_save(ssh, scp, local_save_path, server_save_path)
+        upload_save(ssh, scp, password, local_save_path, server_save_path)
     elif inputs.download:
-        download_save(ssh, scp, local_save_path, server_save_path)
+        download_save(ssh, scp, password, local_save_path, server_save_path)
     elif inputs.start:
-        restart(ssh)
+        restart(ssh, password)
     elif not inputs.upload and not inputs.download and not inputs.start:
         msg = "Select Function Index:\n[1] Upload Save\n[2] Download Save\n[3] Start Server\n"
         input_value = input(msg)
         if input_value == "1":
-            upload_save(ssh, scp, local_save_path, server_save_path)
+            upload_save(ssh, scp, password, local_save_path, server_save_path)
         elif input_value == "2":
-            download_save(ssh, scp, local_save_path, server_save_path)
+            download_save(ssh, scp, password, local_save_path, server_save_path)
         elif input_value == "3":
-            restart(ssh)
+            restart(ssh, password)
         else:
             sys.exit("ERROR: Invalid Input")
 
     scp.close()
+    ssh.close()
     time.sleep(10)
