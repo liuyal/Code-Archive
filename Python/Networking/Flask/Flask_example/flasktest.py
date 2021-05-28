@@ -1,24 +1,29 @@
-import os,sys,time
-print (sys.version)
+import os
+import sys
+import time
+import requests
+from flask import Flask, request
 
-from flask import ( Flask, render_template)
 
-# https://wiki.jenkins.io/display/JENKINS/Step+by+step+guide+to+set+up+master+and+agent+machines+on+Windows
+app = Flask(__name__)
 
-# Create the application instance
-app = Flask(__name__, template_folder="templates")
 
-# Create a URL route in our application for "/"
-@app.route('/')
-def home():
-    """
-    This function just responds to the browser ULR
-    localhost:5000/
+@app.route("/")
+def index():
+    return "Method used: %s" % request.method
 
-    :return:        the rendered template 'home.html'
-    """
-    return render_template('home.php')
 
-# If we're running in stand alone mode, run the application
-if __name__ == '__main__':
+@app.route("/update")
+def update():
+
+    req = request
+
+    data = req.args
+
+    print(data['value1'], data['value2'])
+
+    x = 0
+
+
+if __name__ == "__main__":
     app.run(debug=True)
