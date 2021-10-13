@@ -1,5 +1,16 @@
+import os
+import sys
+import time
 import yfinance
+import pandas as pd
+import numpy as np
 
-data = yfinance.download(tickers='FTNT', period='1m', interval='1m')
 
-print(data)
+while True:
+    data = yfinance.download(tickers='FTNT', period='5m', interval='1m', progress=False)
+
+    latest_point = data['Close'][-1:]
+
+    print(latest_point)
+
+    time.sleep(1)
