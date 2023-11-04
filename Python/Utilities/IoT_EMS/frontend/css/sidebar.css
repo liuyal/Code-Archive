@@ -1,0 +1,95 @@
+li a,
+li a:hover,
+li a:focus {
+    color: lightgray;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    height: 38px;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.sidenav {
+    grid-area: sidenav;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-top: 51px;
+    background-color: rgb (52, 58, 64);
+    z-index: 1;
+}
+
+#sidebar {
+    font-size: 12px;
+    width: 140px;
+    position: fixed;
+    height: 100%;
+    transition: all 0.3s;
+    background-color: rgb (52, 58, 64);
+    border-right: 1px solid #202020;
+}
+
+#sidebar.collapsed {
+    margin-left: -95px;
+    height: 100%;
+}
+
+#sidebar ul.components {
+    padding: 10px 0;
+}
+
+#sidebar i.fas {
+    margin-right: 5px;
+    float: right;
+    margin-top: 4px;
+    color: darkgrey;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    background: rgb(37, 41, 46);
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: rgb(37, 41, 46);
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: 0;
+    }
+
+    #sidebar.collapsed {
+        margin-left: -95px;
+    }
+
+    #content {
+        width: 100%;
+    }
+
+    #content.collapsed {
+        width: calc(100% - 250px);
+    }
+
+    #sidebarCollapse span {
+        display: none;
+    }
+}

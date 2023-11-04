@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script rel="preload" src="https://kit.fontawesome.com/7f2e18d7c9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onLoad="load_fresh()">
+
+    <div class="grid-container">
+
+
+        <header class="header">
+            <div class="nav-header">
+                <div class="navbar sticky-top navbar-dark bg-dark">
+                    <button id="menu-toggle" class="navbar-toggler mr-auto">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+
+        <aside class="sidenav">
+            <div class="side_container">
+                <nav id="sidebar" class="bg-dark">
+                    <ul class="list-unstyled components">
+                        <li class="sidebtn active"><a href="index.html">Dashboard<i class="fas fa-tachometer-alt fa-fw"></i> </a></li>
+                        <li class="sidebtn "><a href="#charts.html">Charts<i class="fas fa-chart-bar fa-fw"></i></a></li>
+                        <li class="sidebtn "><a href="#nodes.html">Nodes<i class="fas fa-map-marker-alt fa-fw"></i></a></li>
+                        <li class="sidebtn "><a href="#settings.html">Setting<i class="fas fa-cog fa-fw"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+
+        <main class="main">
+            <div class="main_wrapper">
+                <div class="main-header bg-dark">
+                    <button type="button" class="btn btn-primary c" onclick="">TEST A</button>
+                    <button type="button" class="btn btn-primary c" onclick="">TEST B</button>
+                </div>
+
+                <div class="main-status">
+                    <div class="overviewcard A">
+                        <div class="overviewcard__label w3-animate-opacity">Nodes Online</div>
+                        <div class="overviewcard__info w3-animate-opacity" id="n_online"></div>
+                        <div class="overviewcard__icon" align="center"><i class="material-icons clock" id="wifi_on">wifi_off</i></div>
+                    </div>
+                    <div class="overviewcard B">
+                        <div class="overviewcard__label w3-animate-opacity">Temperature</div>
+                        <div class="overviewcard__info w3-animate-opacity" id="temp"></div>
+                        <div class="overviewcard__icon" align="center"><i class="fas fa-thermometer-half status_icon"></i></div>
+                    </div>
+                    <div class="overviewcard C">
+                        <div class="overviewcard__label w3-animate-opacity">Humidity</div>
+                        <div class="overviewcard__info w3-animate-opacity" id="hum"></div>
+                        <div class="overviewcard__icon" align="center"><i class="material-icons clock">waves</i></div>
+                    </div>
+                    <div class="overviewcard D">
+                        <div class="overviewcard__label w3-animate-opacity">UTC Time</div>
+                        <div class="overviewcard__info w3-animate-opacity" id="current_time"></div>
+                        <div class="overviewcard__icon" align="center"><i class="material-icons clock">access_time</i></div>
+
+                        <button type="button" class="time_btn" onclick="">
+                            <i class="material-icons md-1">settings</i>
+                            <i class="material-icons md-2">arrow_drop_down</i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="main-cards">
+                    <div class="card A bg-dark">
+                        <div class="chart-container">
+                            <canvas id="tempChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card B bg-dark">
+                        <div class="chart-container">
+                            <canvas id="humChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="footer-cards">
+                    <div class="f-card bg-dark">T1</div>
+                    <div class="f-card bg-dark">T2</div>
+                    <div class="f-card bg-dark">T3</div>
+                    <div class="f-card bg-dark">T4</div>
+                </div>
+            </div>
+        </main>
+
+
+    </div>
+
+
+</body></html>

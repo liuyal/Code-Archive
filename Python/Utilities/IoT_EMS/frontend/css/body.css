@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500');
+
+/* Body Styles */
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    background-color: rgb(37, 41, 46);
+}
+
+.grid-container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 140px 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas:
+        "sidenav header"
+        "sidenav main";
+}
+

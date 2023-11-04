@@ -1,0 +1,11 @@
+__pycache__/
+db_backups/
+.vscode/
+target/
+.idea/
+*.link
+*.sql
+*.log
+*.Ink
+*.URL
+git_commit.py
