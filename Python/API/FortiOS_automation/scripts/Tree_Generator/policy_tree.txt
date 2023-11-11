@@ -1,0 +1,146 @@
+-- [policy] --*policyid         (0,4294967294)
+            |- status
+            |- name     (36 xss)
+            |- uuid
+            |- [srcintf] --*name        (80)
+            |- [dstintf] --*name        (80)
+            |- action
+            |- nat64
+            |- nat46
+            |- ztna-status
+            |- [srcaddr] --*name        (80)
+            |- [dstaddr] --*name        (80)
+            |- [srcaddr6] --*name       (80)
+            |- [dstaddr6] --*name       (80)
+            |- [ztna-ems-tag] --*name   (80)
+            |- [ztna-geo-tag] --*name   (80)
+            |- internet-service
+            |- [internet-service-name] --*name  (80)
+            |- [internet-service-group] --*name         (80)
+            |- [internet-service-custom] --*name        (80)
+            |- [internet-service-custom-group] --*name  (80)
+            |- internet-service-src
+            |- [internet-service-src-name] --*name      (80)
+            |- [internet-service-src-group] --*name     (80)
+            |- [internet-service-src-custom] --*name    (80)
+            |- [internet-service-src-custom-group] --*name      (80)
+            |- reputation-minimum       (0,4294967295)
+            |- reputation-direction
+            |- [src-vendor-mac] --*id   (0,4294967295)
+            |- rtp-nat
+            |- [rtp-addr] --*name       (80)
+            |- send-deny-packet
+            |- firewall-session-dirty
+            |- schedule         (36)
+            |- schedule-timeout
+            |- policy-expiry
+            |- policy-expiry-date
+            |- [service] --*name        (80)
+            |- tos
+            |- tos-mask
+            |- tos-negate
+            |- anti-replay
+            |- tcp-session-without-syn
+            |- geoip-anycast
+            |- geoip-match
+            |- dynamic-shaping
+            |- passive-wan-health-measurement
+            |- utm-status
+            |- inspection-mode
+            |- http-policy-redirect
+            |- ssh-policy-redirect
+            |- webproxy-profile         (64)
+            |- profile-type
+            |- profile-group    (36)
+            |- profile-protocol-options         (36)
+            |- ssl-ssh-profile  (36)
+            |- av-profile       (36)
+            |- webfilter-profile        (36)
+            |- dnsfilter-profile        (36)
+            |- emailfilter-profile      (36)
+            |- dlp-profile      (36)
+            |- file-filter-profile      (36)
+            |- ips-sensor       (36)
+            |- application-list         (36)
+            |- voip-profile     (36)
+            |- sctp-filter-profile      (36)
+            |- icap-profile     (36)
+            |- cifs-profile     (36)
+            |- videofilter-profile      (36)
+            |- waf-profile      (36)
+            |- ssh-filter-profile       (36)
+            |- logtraffic
+            |- logtraffic-start
+            |- capture-packet
+            |- auto-asic-offload
+            |- wanopt
+            |- wanopt-detection
+            |- wanopt-passive-opt
+            |- wanopt-profile   (36)
+            |- wanopt-peer      (36)
+            |- webcache
+            |- webcache-https
+            |- webproxy-forward-server  (64)
+            |- traffic-shaper   (36)
+            |- traffic-shaper-reverse   (36)
+            |- per-ip-shaper    (36)
+            |- nat
+            |- permit-any-host
+            |- permit-stun-host
+            |- fixedport
+            |- ippool
+            |- [poolname] --*name       (80)
+            |- [poolname6] --*name      (80)
+            |- session-ttl
+            |- vlan-cos-fwd     (0,7)
+            |- vlan-cos-rev     (0,7)
+            |- inbound
+            |- outbound
+            |- natinbound
+            |- natoutbound
+            |- fec
+            |- wccp
+            |- ntlm
+            |- ntlm-guest
+            |- [ntlm-enabled-browsers] --*user-agent-string     (80)
+            |- fsso-agent-for-ntlm      (36)
+            |- [groups] --*name         (80)
+            |- [users] --*name  (80)
+            |- [fsso-groups] --*name    (512 xss)
+            |- auth-path
+            |- disclaimer
+            |- email-collect
+            |- vpntunnel        (36)
+            |- natip
+            |- match-vip
+            |- match-vip-only
+            |- diffserv-forward
+            |- diffserv-reverse
+            |- diffservcode-forward
+            |- diffservcode-rev
+            |- tcp-mss-sender   (0,65535)
+            |- tcp-mss-receiver         (0,65535)
+            |- comments
+            |- label    (64 xss)
+            |- global-label     (64 xss)
+            |- auth-cert        (36)
+            |- auth-redirect-addr       (64)
+            |- redirect-url
+            |- identity-based-route     (36)
+            |- block-notification
+            |- [custom-log-fields] --*field-id  (36)
+            |- replacemsg-override-group        (36)
+            |- srcaddr-negate
+            |- dstaddr-negate
+            |- service-negate
+            |- internet-service-negate
+            |- internet-service-src-negate
+            |- timeout-send-rst
+            |- captive-portal-exempt
+            |- decrypted-traffic-mirror         (36)
+            |- dsri
+            |- radius-mac-auth-bypass
+            |- delay-tcp-npu-session
+            |- vlan-filter
+            |- sgt-check
+            +- [sgt] --*id      (1,65535)

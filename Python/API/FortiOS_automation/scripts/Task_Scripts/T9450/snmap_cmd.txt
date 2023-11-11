@@ -1,0 +1,85 @@
+
+```
+config system snmp user
+    edit "user"
+    next
+end
+```
+
+```
+config system snmp sysinfo
+    set status enable
+end
+```
+
+```
+config system snmp mib-view
+end
+```
+
+```
+config system snmp community
+    edit 1
+        set name "public"
+        config hosts
+            edit 1
+            next
+        end
+    next
+end
+```
+
+-----------------------------------------------------------------
+
+show system snmp sysinfo
+show system snmp mib-view
+show system snmp community
+show system snmp user
+
+-----------------------------------------------------------------
+
+Config SNMP
+```
+config system snmp mib-view
+    edit "1"
+        set include ".1.3.6.1.2.1.2.2.1"
+    next
+end
+```
+```
+config system snmp community
+    edit 1
+        set name "public"
+        config hosts
+            edit 1
+                set ip 172.18.16.0 255.255.255.0
+            next
+        end
+        set mib-view "1"
+        set vdoms "vd1"
+    next
+end
+```
+-----------------------------------------------------------------
+
+DEL SNMP
+
+```
+config system snmp community
+    edit 1
+        unset mib-view
+        unset vdoms
+    next
+end
+```
+
+```
+config system snmp mib-view
+   del 1
+end
+```
+
+
+-----------------------------------------------------------------
+
+snmpwalk -v 2c -c public 172.18.16.189 .1.3.6.1.2.1.2.2.1.2

@@ -1,0 +1,16 @@
+c g
+
+config system snmp community
+    edit 1
+        unset mib-view
+    next
+end
+
+config system snmp user
+    del u1
+end
+
+config system snmp mib-view
+   del view-item
+end
+

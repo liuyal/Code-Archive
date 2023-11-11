@@ -1,0 +1,171 @@
+GLOBAL:
+
+  SSH_JUMP_HOST:
+    0:
+      HOSTNAME: "VAN-915138-PC0"
+      IP: "172.17.216.160"
+      USR: "ljerry"
+      KEY: ""
+
+  FSW_448D:
+    SERIAL: "S448DNTF20000102"
+    IP: "10.59.71.15"
+    USR: "admin"
+    PWD: "12345678"
+
+  POWER_MGMT:
+    IP: "10.59.71.2"
+    USR: "apc"
+    PWD: "1234"
+
+  IMAGE_SERVER:
+    IP: "172.16.100.80"
+
+  TFTP_SERVER:
+    0:
+      IP: "10.59.71.200"
+      USR: "ubuntu200"
+      PWD: "1234"
+
+FGT:
+  FGT_60F_UP:
+    SERIAL: ""
+    IP: "10.59.71.100"
+    USR: "admin"
+    PWD: ""
+
+    FGT_60F_DN:
+      SERIAL: ""
+      IP: "10.59.71.101"
+      USR: "admin"
+      PWD: ""
+
+  FWF_60E_UP:
+    SERIAL: ""
+    IP: "10.59.71.102"
+    USR: "admin"
+    PWD: ""
+
+  FWF_60E_DN:
+    SERIAL: ""
+    IP: "10.59.71.103"
+    USR: "admin"
+    PWD: ""
+
+  FGT_101F_UP:
+    SERIAL: ""
+    IP: "10.59.71.104"
+    USR: "admin"
+    PWD: ""
+
+  FGT_101F_DN:
+    SERIAL: ""
+    IP: "10.59.71.105"
+    USR: "admin"
+    PWD: ""
+
+  FGT_201F_UP:
+    SERIAL: ""
+    IP: "10.59.71.106"
+    USR: "admin"
+    PWD: ""
+
+  FGT_201F_DN:
+    SERIAL: ""
+    IP: "10.59.71.107"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_80:
+    SERIAL: ""
+    IP: "10.59.71.80"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_81:
+    SERIAL: ""
+    IP: "10.59.71.81"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_82:
+    SERIAL: ""
+    IP: "10.59.71.82"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_83:
+    SERIAL: ""
+    IP: "10.59.71.83"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_84:
+    SERIAL: ""
+    IP: "10.59.71.84"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_85:
+    SERIAL: ""
+    IP: "10.59.71.85"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_86:
+    SERIAL: ""
+    IP: "10.59.71.86"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_87:
+    SERIAL: ""
+    IP: "10.59.71.87"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_88:
+    SERIAL: ""
+    IP: "10.59.71.88"
+    USR: "admin"
+    PWD: ""
+
+  FGT_VM_89:
+    SERIAL: ""
+    IP: "10.59.71.89"
+    USR: "admin"
+    PWD: ""
+
+PC_VM:
+  0:
+    IP: "10.59.71.200"
+    USR: "ubuntu200"
+    PWD: "1234"
+  1:
+    IP: "10.59.71.201"
+    USR: "ubuntu201"
+    PWD: "1234"
+  2:
+    IP: "10.59.71.202"
+    USR: "ubuntu202"
+    PWD: "1234"
+  3:
+    IP: "10.59.71.203"
+    USR: "ubuntu203"
+    PWD: "1234"
+  4:
+    IP: "10.59.71.204"
+    USR: "ubuntu204"
+    PWD: "1234"
+  5:
+    IP: "10.59.71.205"
+    USR: "ubuntu205"
+    PWD: "1234"
+  6:
+    IP: "10.59.71.206"
+    USR: "ubuntu206"
+    PWD: "1234"
+  7:
+    IP: "10.59.71.207"
+    USR: "ubuntu207"
+    PWD: "1234"

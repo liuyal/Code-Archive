@@ -1,0 +1,2172 @@
+[2022-04-14 10:27:50] Remove tc delay
+[2022-04-14 10:27:50] Sleep for 60
+[2022-04-14 10:28:50] Check sdwan health-check
+[2022-04-14 10:28:51] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:28:51] Check sdwan service
+[2022-04-14 10:28:51] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:28:51] Check sdwan proute
+[2022-04-14 10:28:51] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:28:51] Check sdwan route tag
+[2022-04-14 10:28:51] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 861209 869217
+	service(1), last read route-tag 1004 at 861417
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:28:51] Sleep for 10
+[2022-04-14 10:29:01] Add tc delay
+[2022-04-14 10:29:01] Sleep for 60
+[2022-04-14 10:30:01] Check sdwan health-check
+[2022-04-14 10:30:01] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.335), jitter(0.022) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.286), jitter(0.028) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.253), jitter(0.029) sla_map=0x1
+[2022-04-14 10:30:01] Check sdwan service
+[2022-04-14 10:30:01] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:30:01] Check sdwan proute
+[2022-04-14 10:30:01] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:30:01] Check sdwan route tag
+[2022-04-14 10:30:02] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 870808 876296
+	service(1), last read route-tag 1004 at 871027
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:30:02] Sleep for 10
+[2022-04-14 10:30:12] Remove tc delay
+[2022-04-14 10:30:12] Sleep for 60
+[2022-04-14 10:31:12] Remove tc delay
+[2022-04-14 10:31:12] Sleep for 60
+[2022-04-14 10:32:12] Check sdwan health-check
+[2022-04-14 10:32:12] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:32:12] Check sdwan service
+[2022-04-14 10:32:12] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(6): 
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:32:12] Check sdwan proute
+[2022-04-14 10:32:12] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(6): 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:32:12] Check sdwan route tag
+[2022-04-14 10:32:13] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(6), v6(0)Last write/now: 888726 889396
+	service(1), last read route-tag 1004 at 888946
+Prefix(24): Address list(6):
+	170.14.1.0-170.14.1.255 oif: 21 22
+	172.1.1.0-172.1.1.255 oif: 21 22
+	172.2.1.0-172.2.1.255 oif: 21 22
+	172.3.1.0-172.3.1.255 oif: 21 22
+	172.4.1.0-172.4.1.255 oif: 21 22
+	172.5.1.0-172.5.1.255 oif: 21 22
+[2022-04-14 10:32:13] Sleep for 10
+[2022-04-14 10:32:23] Add tc delay
+[2022-04-14 10:32:23] Sleep for 60
+[2022-04-14 10:33:23] Check sdwan health-check
+[2022-04-14 10:33:23] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.354), jitter(0.110) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.312), jitter(0.105) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.299), jitter(0.098) sla_map=0x1
+[2022-04-14 10:33:23] Check sdwan service
+[2022-04-14 10:33:23] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:33:23] Check sdwan proute
+[2022-04-14 10:33:23] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:33:23] Check sdwan route tag
+[2022-04-14 10:33:23] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 889408 896476
+	service(1), last read route-tag 1004 at 889648
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:33:23] Sleep for 10
+[2022-04-14 10:33:33] Remove tc delay
+[2022-04-14 10:33:34] Sleep for 60
+[2022-04-14 10:34:34] Remove tc delay
+[2022-04-14 10:34:34] Sleep for 60
+[2022-04-14 10:35:34] Check sdwan health-check
+[2022-04-14 10:35:34] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:35:34] Check sdwan service
+[2022-04-14 10:35:34] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:35:34] Check sdwan proute
+[2022-04-14 10:35:34] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:35:34] Check sdwan route tag
+[2022-04-14 10:35:34] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 908008 909579
+	service(1), last read route-tag 1004 at 908214
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:35:34] Sleep for 10
+[2022-04-14 10:35:44] Add tc delay
+[2022-04-14 10:35:45] Sleep for 60
+[2022-04-14 10:36:45] Check sdwan health-check
+[2022-04-14 10:36:45] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.325), jitter(0.033) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.279), jitter(0.029) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.256), jitter(0.032) sla_map=0x1
+[2022-04-14 10:36:45] Check sdwan service
+[2022-04-14 10:36:45] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:36:45] Check sdwan proute
+[2022-04-14 10:36:45] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:36:45] Check sdwan route tag
+[2022-04-14 10:36:45] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 914808 916662
+	service(1), last read route-tag 1004 at 915021
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:36:45] Sleep for 10
+[2022-04-14 10:36:55] Remove tc delay
+[2022-04-14 10:36:55] Sleep for 60
+[2022-04-14 10:37:55] Remove tc delay
+[2022-04-14 10:37:56] Sleep for 60
+[2022-04-14 10:38:56] Check sdwan health-check
+[2022-04-14 10:38:56] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:38:56] Check sdwan service
+[2022-04-14 10:38:56] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:38:56] Check sdwan proute
+[2022-04-14 10:38:56] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:38:56] Check sdwan route tag
+[2022-04-14 10:38:56] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 926608 929770
+	service(1), last read route-tag 1004 at 926835
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:38:56] Sleep for 10
+[2022-04-14 10:39:06] Add tc delay
+[2022-04-14 10:39:07] Sleep for 60
+[2022-04-14 10:40:07] Check sdwan health-check
+[2022-04-14 10:40:07] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.331), jitter(0.046) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.285), jitter(0.047) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.261), jitter(0.044) sla_map=0x1
+[2022-04-14 10:40:07] Check sdwan service
+[2022-04-14 10:40:07] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:40:07] Check sdwan proute
+[2022-04-14 10:40:07] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:40:07] Check sdwan route tag
+[2022-04-14 10:40:07] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 935909 936854
+	service(1), last read route-tag 1004 at 936143
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:40:07] Sleep for 10
+[2022-04-14 10:40:17] Remove tc delay
+[2022-04-14 10:40:17] Sleep for 60
+[2022-04-14 10:41:17] Remove tc delay
+[2022-04-14 10:41:18] Sleep for 60
+[2022-04-14 10:42:18] Check sdwan health-check
+[2022-04-14 10:42:18] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:42:18] Check sdwan service
+[2022-04-14 10:42:18] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:42:18] Check sdwan proute
+[2022-04-14 10:42:18] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:42:18] Check sdwan route tag
+[2022-04-14 10:42:18] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 945208 949958
+	service(1), last read route-tag 1004 at 945451
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:42:18] Sleep for 10
+[2022-04-14 10:42:28] Add tc delay
+[2022-04-14 10:42:28] Sleep for 60
+[2022-04-14 10:43:29] Check sdwan health-check
+[2022-04-14 10:43:29] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.337), jitter(0.032) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.289), jitter(0.037) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.266), jitter(0.036) sla_map=0x1
+[2022-04-14 10:43:29] Check sdwan service
+[2022-04-14 10:43:29] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:43:29] Check sdwan proute
+[2022-04-14 10:43:29] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:43:29] Check sdwan route tag
+[2022-04-14 10:43:29] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 955208 957030
+	service(1), last read route-tag 1004 at 955410
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:43:29] Sleep for 10
+[2022-04-14 10:43:39] Remove tc delay
+[2022-04-14 10:43:39] Sleep for 60
+[2022-04-14 10:44:39] Remove tc delay
+[2022-04-14 10:44:39] Sleep for 60
+[2022-04-14 10:45:40] Check sdwan health-check
+[2022-04-14 10:45:40] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:45:40] Check sdwan service
+[2022-04-14 10:45:40] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:45:40] Check sdwan proute
+[2022-04-14 10:45:40] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:45:40] Check sdwan route tag
+[2022-04-14 10:45:40] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 963808 970135
+	service(1), last read route-tag 1004 at 964020
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:45:40] Sleep for 10
+[2022-04-14 10:45:50] Add tc delay
+[2022-04-14 10:45:50] Sleep for 60
+[2022-04-14 10:46:50] Check sdwan health-check
+[2022-04-14 10:46:50] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.334), jitter(0.027) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.282), jitter(0.025) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.260), jitter(0.037) sla_map=0x1
+[2022-04-14 10:46:50] Check sdwan service
+[2022-04-14 10:46:51] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:46:51] Check sdwan proute
+[2022-04-14 10:46:51] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:46:51] Check sdwan route tag
+[2022-04-14 10:46:51] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 963808 977211
+	service(1), last read route-tag 1004 at 964020
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:46:51] Sleep for 10
+[2022-04-14 10:47:01] Remove tc delay
+[2022-04-14 10:47:01] Sleep for 60
+[2022-04-14 10:48:01] Remove tc delay
+[2022-04-14 10:48:01] Sleep for 60
+[2022-04-14 10:49:01] Check sdwan health-check
+[2022-04-14 10:49:02] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:49:02] Check sdwan service
+[2022-04-14 10:49:02] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:49:02] Check sdwan proute
+[2022-04-14 10:49:02] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:49:02] Check sdwan route tag
+[2022-04-14 10:49:02] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 982508 990324
+	service(1), last read route-tag 1004 at 982735
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:49:02] Sleep for 10
+[2022-04-14 10:49:12] Add tc delay
+[2022-04-14 10:49:12] Sleep for 60
+[2022-04-14 10:50:12] Check sdwan health-check
+[2022-04-14 10:50:12] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.334), jitter(0.025) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.287), jitter(0.025) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.265), jitter(0.037) sla_map=0x1
+[2022-04-14 10:50:12] Check sdwan service
+[2022-04-14 10:50:12] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:50:12] Check sdwan proute
+[2022-04-14 10:50:12] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:50:12] Check sdwan route tag
+[2022-04-14 10:50:13] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 982508 997401
+	service(1), last read route-tag 1004 at 982735
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:50:13] Sleep for 10
+[2022-04-14 10:50:23] Remove tc delay
+[2022-04-14 10:50:23] Sleep for 60
+[2022-04-14 10:51:23] Remove tc delay
+[2022-04-14 10:51:23] Sleep for 60
+[2022-04-14 10:52:23] Check sdwan health-check
+[2022-04-14 10:52:23] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:52:23] Check sdwan service
+[2022-04-14 10:52:24] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:52:24] Check sdwan proute
+[2022-04-14 10:52:24] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:52:24] Check sdwan route tag
+[2022-04-14 10:52:24] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1001109 1010510
+	service(1), last read route-tag 1004 at 1001354
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:52:24] Sleep for 10
+[2022-04-14 10:52:34] Add tc delay
+[2022-04-14 10:52:34] Sleep for 60
+[2022-04-14 10:53:34] Check sdwan health-check
+[2022-04-14 10:53:34] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.335), jitter(0.033) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.290), jitter(0.043) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.259), jitter(0.046) sla_map=0x1
+[2022-04-14 10:53:34] Check sdwan service
+[2022-04-14 10:53:34] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:53:34] Check sdwan proute
+[2022-04-14 10:53:34] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:53:34] Check sdwan route tag
+[2022-04-14 10:53:34] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1001109 1017588
+	service(1), last read route-tag 1004 at 1001354
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:53:34] Sleep for 10
+[2022-04-14 10:53:44] Remove tc delay
+[2022-04-14 10:53:45] Sleep for 60
+[2022-04-14 10:54:45] Remove tc delay
+[2022-04-14 10:54:45] Sleep for 60
+[2022-04-14 10:55:45] Check sdwan health-check
+[2022-04-14 10:55:45] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:55:45] Check sdwan service
+[2022-04-14 10:55:45] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:55:45] Check sdwan proute
+[2022-04-14 10:55:45] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:55:45] Check sdwan route tag
+[2022-04-14 10:55:46] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1019508 1030694
+	service(1), last read route-tag 1004 at 1019723
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:55:46] Sleep for 10
+[2022-04-14 10:55:56] Add tc delay
+[2022-04-14 10:55:56] Sleep for 60
+[2022-04-14 10:56:56] Check sdwan health-check
+[2022-04-14 10:56:56] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.319), jitter(0.038) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.274), jitter(0.032) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.252), jitter(0.029) sla_map=0x1
+[2022-04-14 10:56:56] Check sdwan service
+[2022-04-14 10:56:56] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(6): 
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:56:56] Check sdwan proute
+[2022-04-14 10:56:56] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(6): 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:56:56] Check sdwan route tag
+[2022-04-14 10:56:56] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(6), v6(0)Last write/now: 1037425 1037777
+	service(1), last read route-tag 1004 at 1037639
+Prefix(24): Address list(6):
+	170.14.1.0-170.14.1.255 oif: 21 22
+	172.1.1.0-172.1.1.255 oif: 21 22
+	172.2.1.0-172.2.1.255 oif: 21 22
+	172.3.1.0-172.3.1.255 oif: 21 22
+	172.4.1.0-172.4.1.255 oif: 21 22
+	172.5.1.0-172.5.1.255 oif: 21 22
+[2022-04-14 10:56:56] Sleep for 10
+[2022-04-14 10:57:06] Remove tc delay
+[2022-04-14 10:57:07] Sleep for 60
+[2022-04-14 10:58:07] Remove tc delay
+[2022-04-14 10:58:07] Sleep for 60
+[2022-04-14 10:59:07] Check sdwan health-check
+[2022-04-14 10:59:07] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 10:59:07] Check sdwan service
+[2022-04-14 10:59:07] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 10:59:07] Check sdwan proute
+[2022-04-14 10:59:07] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 10:59:07] Check sdwan route tag
+[2022-04-14 10:59:07] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1047308 1050884
+	service(1), last read route-tag 1004 at 1047551
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 10:59:07] Sleep for 10
+[2022-04-14 10:59:17] Add tc delay
+[2022-04-14 10:59:18] Sleep for 60
+[2022-04-14 11:00:18] Check sdwan health-check
+[2022-04-14 11:00:18] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.333), jitter(0.032) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.287), jitter(0.035) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.264), jitter(0.037) sla_map=0x1
+[2022-04-14 11:00:18] Check sdwan service
+[2022-04-14 11:00:18] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:00:18] Check sdwan proute
+[2022-04-14 11:00:18] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:00:18] Check sdwan route tag
+[2022-04-14 11:00:18] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1056508 1057961
+	service(1), last read route-tag 1004 at 1056713
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:00:18] Sleep for 10
+[2022-04-14 11:00:28] Remove tc delay
+[2022-04-14 11:00:28] Sleep for 60
+[2022-04-14 11:01:28] Remove tc delay
+[2022-04-14 11:01:29] Sleep for 60
+[2022-04-14 11:02:29] Check sdwan health-check
+[2022-04-14 11:02:29] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 11:02:29] Check sdwan service
+[2022-04-14 11:02:29] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:02:29] Check sdwan proute
+[2022-04-14 11:02:29] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:02:29] Check sdwan route tag
+[2022-04-14 11:02:29] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1056508 1071070
+	service(1), last read route-tag 1004 at 1056713
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:02:29] Sleep for 10
+[2022-04-14 11:02:39] Add tc delay
+[2022-04-14 11:02:40] Sleep for 60
+[2022-04-14 11:03:40] Check sdwan health-check
+[2022-04-14 11:03:40] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.331), jitter(0.028) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.285), jitter(0.032) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.261), jitter(0.031) sla_map=0x1
+[2022-04-14 11:03:40] Check sdwan service
+[2022-04-14 11:03:40] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:03:40] Check sdwan proute
+[2022-04-14 11:03:40] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:03:40] Check sdwan route tag
+[2022-04-14 11:03:40] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1075208 1078149
+	service(1), last read route-tag 1004 at 1075432
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:03:40] Sleep for 10
+[2022-04-14 11:03:50] Remove tc delay
+[2022-04-14 11:03:50] Sleep for 60
+[2022-04-14 11:04:50] Remove tc delay
+[2022-04-14 11:04:51] Sleep for 60
+[2022-04-14 11:05:51] Check sdwan health-check
+[2022-04-14 11:05:51] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 11:05:51] Check sdwan service
+[2022-04-14 11:05:51] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:05:51] Check sdwan proute
+[2022-04-14 11:05:51] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:05:51] Check sdwan route tag
+[2022-04-14 11:05:51] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1075208 1091254
+	service(1), last read route-tag 1004 at 1075432
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:05:51] Sleep for 10
+[2022-04-14 11:06:01] Add tc delay
+[2022-04-14 11:06:01] Sleep for 60
+[2022-04-14 11:07:02] Check sdwan health-check
+[2022-04-14 11:07:02] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.315), jitter(0.029) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.266), jitter(0.019) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.244), jitter(0.032) sla_map=0x1
+[2022-04-14 11:07:02] Check sdwan service
+[2022-04-14 11:07:02] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:07:02] Check sdwan proute
+[2022-04-14 11:07:02] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:07:02] Check sdwan route tag
+[2022-04-14 11:07:02] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1093608 1098337
+	service(1), last read route-tag 1004 at 1093845
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:07:02] Sleep for 10
+[2022-04-14 11:07:12] Remove tc delay
+[2022-04-14 11:07:12] Sleep for 60
+[2022-04-14 11:08:12] Remove tc delay
+[2022-04-14 11:08:12] Sleep for 60
+[2022-04-14 11:09:13] Check sdwan health-check
+[2022-04-14 11:09:13] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 11:09:13] Check sdwan service
+[2022-04-14 11:09:13] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:09:13] Check sdwan proute
+[2022-04-14 11:09:13] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:09:13] Check sdwan route tag
+[2022-04-14 11:09:13] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1110425 1111440
+	service(1), last read route-tag 1004 at 1110663
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:09:13] Sleep for 10
+[2022-04-14 11:09:23] Add tc delay
+[2022-04-14 11:09:23] Sleep for 60
+[2022-04-14 11:10:23] Check sdwan health-check
+[2022-04-14 11:10:24] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.321), jitter(0.025) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.273), jitter(0.026) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.255), jitter(0.039) sla_map=0x1
+[2022-04-14 11:10:24] Check sdwan service
+[2022-04-14 11:10:24] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:10:24] Check sdwan proute
+[2022-04-14 11:10:24] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:10:24] Check sdwan route tag
+[2022-04-14 11:10:24] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1112309 1118523
+	service(1), last read route-tag 1004 at 1112514
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:10:24] Sleep for 10
+[2022-04-14 11:10:34] Remove tc delay
+[2022-04-14 11:10:34] Sleep for 60
+[2022-04-14 11:11:34] Remove tc delay
+[2022-04-14 11:11:34] Sleep for 60
+[2022-04-14 11:12:35] Check sdwan health-check
+[2022-04-14 11:12:35] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 11:12:35] Check sdwan service
+[2022-04-14 11:12:35] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:12:35] Check sdwan proute
+[2022-04-14 11:12:35] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:12:35] Check sdwan route tag
+[2022-04-14 11:12:35] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1130908 1131628
+	service(1), last read route-tag 1004 at 1131133
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:12:35] Sleep for 10
+[2022-04-14 11:12:45] Add tc delay
+[2022-04-14 11:12:45] Sleep for 60
+[2022-04-14 11:13:45] Check sdwan health-check
+[2022-04-14 11:13:45] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.315), jitter(0.030) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.266), jitter(0.028) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.244), jitter(0.033) sla_map=0x1
+[2022-04-14 11:13:45] Check sdwan service
+[2022-04-14 11:13:46] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:13:46] Check sdwan proute
+[2022-04-14 11:13:46] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:13:46] Check sdwan route tag
+[2022-04-14 11:13:46] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1138608 1138712
+	service(1), last read route-tag 1004 at 1136537
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:13:46] Sleep for 10
+[2022-04-14 11:13:56] Remove tc delay
+[2022-04-14 11:13:56] Sleep for 60
+[2022-04-14 11:15:36] Remove tc delay
+[2022-04-14 11:15:36] Sleep for 60
+[2022-04-14 11:16:36] Check sdwan health-check
+[2022-04-14 11:16:36] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 11:16:36] Check sdwan service
+[2022-04-14 11:16:36] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:16:36] Check sdwan proute
+[2022-04-14 11:16:36] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:16:36] Check sdwan route tag
+[2022-04-14 11:16:36] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1149308 1155781
+	service(1), last read route-tag 1004 at 1149549
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:16:36] Sleep for 10
+[2022-04-14 11:16:46] Add tc delay
+[2022-04-14 11:16:47] Sleep for 60
+[2022-04-14 11:17:47] Check sdwan health-check
+[2022-04-14 11:17:47] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.321), jitter(0.024) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.282), jitter(0.031) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.250), jitter(0.039) sla_map=0x1
+[2022-04-14 11:17:47] Check sdwan service
+[2022-04-14 11:17:47] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:17:47] Check sdwan proute
+[2022-04-14 11:17:47] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:17:47] Check sdwan route tag
+[2022-04-14 11:17:47] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1149308 1162865
+	service(1), last read route-tag 1004 at 1149549
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:17:47] Sleep for 10
+[2022-04-14 11:17:57] Remove tc delay
+[2022-04-14 11:17:57] Sleep for 60
+[2022-04-14 11:18:57] Remove tc delay
+[2022-04-14 11:18:58] Sleep for 60
+[2022-04-14 11:19:58] Check sdwan health-check
+[2022-04-14 11:19:58] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 11:19:58] Check sdwan service
+[2022-04-14 11:19:58] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:19:58] Check sdwan proute
+[2022-04-14 11:19:58] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:19:58] Check sdwan route tag
+[2022-04-14 11:19:58] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1167908 1175968
+	service(1), last read route-tag 1004 at 1168117
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:19:58] Sleep for 10
+[2022-04-14 11:20:08] Add tc delay
+[2022-04-14 11:20:09] Sleep for 60
+[2022-04-14 11:21:09] Check sdwan health-check
+[2022-04-14 11:21:09] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.319), jitter(0.028) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.274), jitter(0.026) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.243), jitter(0.027) sla_map=0x1
+[2022-04-14 11:21:09] Check sdwan service
+[2022-04-14 11:21:09] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:21:09] Check sdwan proute
+[2022-04-14 11:21:09] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:21:09] Check sdwan route tag
+[2022-04-14 11:21:09] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1167908 1183049
+	service(1), last read route-tag 1004 at 1168117
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:21:09] Sleep for 10
+[2022-04-14 11:21:19] Remove tc delay
+[2022-04-14 11:21:19] Sleep for 60
+[2022-04-14 11:22:19] Remove tc delay
+[2022-04-14 11:22:20] Sleep for 60
+[2022-04-14 11:23:20] Check sdwan health-check
+[2022-04-14 11:23:20] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(2): state(dead), packet-loss(100.000%) sla_map=0x0
+Seq(3): state(dead), packet-loss(100.000%) sla_map=0x0
+[2022-04-14 11:23:20] Check sdwan service
+[2022-04-14 11:23:20] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), dead, sla(0x0), cfg_order(0), cost(0)
+    2: Seq_num(2), dead, sla(0x0), cfg_order(1), cost(0)
+    3: Seq_num(3), dead, sla(0x0), cfg_order(2), cost(0)
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:23:20] Check sdwan proute
+[2022-04-14 11:23:20] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) dscp_tag=0xff 0xff flags=0x48 disable order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:23:20] Check sdwan route tag
+[2022-04-14 11:23:20] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1186508 1196156
+	service(1), last read route-tag 1004 at 1186738
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:23:20] Sleep for 10
+[2022-04-14 11:23:30] Add tc delay
+[2022-04-14 11:23:30] Sleep for 60
+[2022-04-14 11:24:31] Check sdwan health-check
+[2022-04-14 11:24:31] current vf=spoke1:1
+
+Health Check(1): 
+Seq(1): state(alive), packet-loss(0.000%) latency(0.332), jitter(0.023) sla_map=0x1
+Seq(2): state(alive), packet-loss(0.000%) latency(0.285), jitter(0.030) sla_map=0x1
+Seq(3): state(alive), packet-loss(0.000%) latency(0.266), jitter(0.035) sla_map=0x1
+[2022-04-14 11:24:31] Check sdwan service
+[2022-04-14 11:24:31] current vf=spoke1:1
+
+
+Service(1): Address Mode(IPV4) flags=0x0
+  TOS(0x0/0x0), Protocol(0: 1->65535), Mode(sla)
+  Service role: standalone
+  Member sub interface(3): 
+  Members(3): 
+    1: Seq_num(1), alive, sla(0x1), cfg_order(0), cost(0), selected
+    2: Seq_num(2), alive, sla(0x1), cfg_order(1), cost(0), selected
+    3: Seq_num(3), alive, sla(0x1), cfg_order(2), cost(0), selected
+  Src address(1): 
+	0.0.0.0-255.255.255.255
+
+  Route tag address(7): 
+	170.12.1.0-170.12.1.255
+	170.14.1.0-170.14.1.255
+	172.1.1.0-172.1.1.255
+	172.2.1.0-172.2.1.255
+	172.3.1.0-172.3.1.255
+	172.4.1.0-172.4.1.255
+	172.5.1.0-172.5.1.255
+[2022-04-14 11:24:31] Check sdwan proute
+[2022-04-14 11:24:31] current vf=spoke1:1
+
+list route policy info(vf=spoke1):
+
+id=0x7f080001 vwl_service=1(1) vwl_mbr_seq=1 2 3 dscp_tag=0xff 0xff flags=0x40 order-addr tos=0x00 tos_mask=0x00 protocol=0 sport=0:65535 iif=0 dport=1-65535 oif=21 oif=22 oif=23 
+source(1): 0.0.0.0-255.255.255.255 
+destination(7): 
+	170.12.1.0-170.12.1.255 
+	170.14.1.0-170.14.1.255 
+	172.1.1.0-172.1.1.255 
+	172.2.1.0-172.2.1.255 
+	172.3.1.0-172.3.1.255 
+	172.4.1.0-172.4.1.255 
+	172.5.1.0-172.5.1.255 
+
+hit_count=0 last_used=2022-04-14 10:27:18
+[2022-04-14 11:24:31] Check sdwan route tag
+[2022-04-14 11:24:31] current vf=spoke1:1
+
+Route-tag: 1004, address: v4(7), v6(0)Last write/now: 1186508 1203231
+	service(1), last read route-tag 1004 at 1186738
+Prefix(24): Address list(7):
+	170.12.1.0-170.12.1.255 oif: 23
+	170.14.1.0-170.14.1.255 oif: 21 22 23
+	172.1.1.0-172.1.1.255 oif: 21 22 23
+	172.2.1.0-172.2.1.255 oif: 21 22 23
+	172.3.1.0-172.3.1.255 oif: 21 22 23
+	172.4.1.0-172.4.1.255 oif: 21 22 23
+	172.5.1.0-172.5.1.255 oif: 21 22 23
+[2022-04-14 11:24:31] Sleep for 10
+[2022-04-14 11:24:41] Remove tc delay
+[2022-04-14 11:24:41] Sleep for 60
+[2022-04-14 11:25:41] Remove tc delay
+[2022-04-14 11:25:41] Sleep for 60

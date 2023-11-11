@@ -1,0 +1,27 @@
+c g
+
+config system snmp mib-view
+    edit view-item
+        set include .<ID>
+        set exclude .<EID>
+    next
+end
+
+config system snmp community
+    edit 1
+        set name public
+        config hosts
+            edit 1
+                set ip 172.18.16.0 255.255.255.0
+            next
+        end
+        set mib-view view-item
+    next
+end
+
+config system snmp user
+    edit u1
+        set mib-view view-item
+        set vdoms <VDOM>
+    next
+end

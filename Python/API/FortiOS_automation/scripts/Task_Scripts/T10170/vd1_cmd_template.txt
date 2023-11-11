@@ -1,0 +1,10 @@
+
+c v
+
+ed root
+
+config firewall policy
+    edit 1
+        set status <SET>
+    next
+end

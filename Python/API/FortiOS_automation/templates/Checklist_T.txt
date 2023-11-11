@@ -1,0 +1,31 @@
+========================================
+Mantis ID:
+Bug Description: 
+Product: FortiGate
+Test checklist approved by:   	
+Test checklist approved on: 
+Product Model Number (If applicable): FortiGate VM64
+Version: 
+Build Number: 
+QA Engineer: Jerry Liu
+Code Coverage Percentage:
+Code Coverage Comment (required if <70%):
+========================================
+
+Testing Scenario
+-----------------
+
+[GUI]
+
+[CLI]
+
+[Upgrade]
+
+[Feature] 
+
+[Sanity]
+
+
+*******
+Details
+*******
