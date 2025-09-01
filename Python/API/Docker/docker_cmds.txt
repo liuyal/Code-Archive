@@ -1,0 +1,10 @@
+docker build . -f DOCKERFILE -t app:latest
+
+docker run -d --name app-1 -p 127.0.0.1:2222:22 -t app
+docker run -d --name app-2 -p 127.0.0.1:2223:22 -t app
+
+docker stop $(docker ps -q)
+docker rm -f $(docker ps -aq)
+
+
+docker-compose up

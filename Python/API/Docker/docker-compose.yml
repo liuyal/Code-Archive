@@ -1,0 +1,7 @@
+services:
+  web:
+    image: app
+    ports:
+      - "80:80"
+  db:
+    image: app
